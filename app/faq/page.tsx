@@ -54,17 +54,17 @@ export default function FaqPage() {
           </div>
 
           <Card className="mx-auto max-w-3xl animate-fade-up glass-effect">
-            <Accordion type="single" collapsible className="p-6">
+            <Accordion type="single" collapsible className="p-2 sm:p-6">
               {faqItems.map((item, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="hover-card-effect px-4 rounded-lg my-2"
+                  className="hover-card-effect px-2 sm:px-4 rounded-lg my-2"
                 >
-                  <AccordionTrigger className="text-left hover:text-primary">
+                  <AccordionTrigger className="text-left hover:text-primary text-sm sm:text-base">
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground whitespace-pre-line">
+                  <AccordionContent className="text-muted-foreground whitespace-pre-line text-sm">
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>

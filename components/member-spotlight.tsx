@@ -41,7 +41,7 @@ export function MemberSpotlight() {
       <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
         Member Spotlight
       </h2>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid gap-6 sm:grid-cols-2">
         {spotlightMembers.map((member, index) => (
           <motion.div
             key={member.name}
@@ -68,8 +68,8 @@ export function MemberSpotlight() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-3 gap-4 p-4 bg-primary/5 rounded-lg">
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-4 p-2 sm:p-4 bg-primary/5 rounded-lg">
                     <div className="text-center">
                       <Trophy className="h-5 w-5 mx-auto mb-1 text-primary" />
                       <div className="text-lg font-semibold">{member.stats.projects}</div>

@@ -85,13 +85,13 @@ export default function BlogPage() {
               </div>
             }
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {posts.map((post) => (
                 <Card 
                   key={post.id}
                   className="hover-card-effect glass-effect"
                 >
-                  <CardHeader>
+                  <CardHeader className="p-3 sm:p-6">
                     <h3 className="text-xl font-bold">{post.title}</h3>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span>{post.author}</span>
@@ -99,7 +99,7 @@ export default function BlogPage() {
                       <span>{post.readTime}</span>
                     </div>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="p-3 sm:p-6">
                     <p className="text-muted-foreground mb-4">{post.excerpt}</p>
                     <div className="flex flex-wrap gap-2">
                       {post.tags.map((tag) => (

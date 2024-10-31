@@ -164,7 +164,7 @@ export default function TeamPage() {
         </TabsList>
         {Object.entries(executives).map(([key, members]) => (
           <TabsContent key={key} value={key}>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 py-14">
               {members.map((member, index) => (
                 <div key={member.name} className="animate-fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
                   <ExecutiveCard {...member} />

@@ -173,9 +173,13 @@ export default function JoinPage() {
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              {/* Form fields... */}
+              <div className="grid gap-6 sm:grid-cols-2">
+                {/* Form fields that should be side by side */}
+              </div>
 
-              {/* Add all the form fields here */}
+              <div className="space-y-6">
+                {/* Full width form fields */}
+              </div>
             </form>
           </Form>
         </CardContent>

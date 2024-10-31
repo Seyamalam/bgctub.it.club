@@ -42,20 +42,20 @@ export default function EventsPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {events.map((event, index) => (
               <Card 
                 key={index} 
                 className="group hover-card-effect glass-effect animate-fade-up" 
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader>
+                <CardHeader className="p-3 sm:p-6">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80">
                     <event.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-xl font-bold">{event.title}</h3>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-3 sm:p-6">
                   <p className="mb-4 text-muted-foreground">{event.description}</p>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                     <CalendarDays className="h-4 w-4" />

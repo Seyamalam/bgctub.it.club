@@ -47,6 +47,19 @@
     --input: 217 70% 15%;
     --ring: 217 91% 60%;
   }
+
+  h1 {
+    @apply text-3xl sm:text-4xl font-bold;
+  }
+  h2 {
+    @apply text-2xl sm:text-3xl font-bold;
+  }
+  h3 {
+    @apply text-xl sm:text-2xl font-semibold;
+  }
+  .container {
+    @apply px-2 sm:px-4 md:px-6;
+  }
 }
 
 @layer base {

@@ -58,8 +58,8 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="border-t bg-gradient-to-b from-background/50 to-background glass-effect">
-      <div className="container py-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+      <div className="container py-4 sm:py-8">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div className="space-y-3">
             <h3 className="text-lg font-semibold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
               About Us
@@ -143,18 +143,18 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border/40 pt-8">
-          <div className="max-w-md mx-auto">
+        <div className="mt-6 sm:mt-8 border-t border-border/40 pt-6 sm:pt-8">
+          <div className="max-w-md mx-auto px-2">
             <NewsletterForm />
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border/40 pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+        <div className="mt-6 sm:mt-8 border-t border-border/40 pt-6 sm:pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row">
             <p className="text-center text-sm text-muted-foreground">
               © {new Date().getFullYear()} BGCTUB IT Club. All rights reserved.
             </p>
-            <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+            <div className="flex flex-wrap justify-center items-center gap-4 text-sm text-muted-foreground">
               <Link href="/privacy" className="hover:text-primary transition-colors">
                 Privacy Policy
               </Link>
