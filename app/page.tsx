@@ -102,11 +102,6 @@ export default function HomePage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full opacity-20 dark:opacity-30"
-        aria-hidden="true"
-      />
       
       <div className="relative z-10">
         <div className="container mx-auto px-4 py-16 md:py-24">
