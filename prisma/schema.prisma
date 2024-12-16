@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Member {
@@ -15,9 +16,9 @@ model Member {
   phone         String
   department    String   
   semester      String
-  experience    String   
-  whyJoin       String   
-  aboutYourself String   
+  experience    String   @db.Text
+  whyJoin       String   @db.Text
+  aboutYourself String   @db.Text
   cvLink        String?
   status        String   @default("pending")
   createdAt     DateTime @default(now())

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/db'
 import { z } from 'zod'
+import { Prisma } from '@prisma/client'
 
 const membershipSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -42,20 +43,20 @@ export async function POST(req: Request) {
         )
       }
 
-      // Create new member
+      // Create new member with PostgreSQL-specific handling
       const member = await prisma.member.create({
         data: {
-          name: validatedData.name,
-          studentId: validatedData.studentId,
-          semester: validatedData.semester,
-          department: validatedData.department,
-          email: validatedData.email,
-          phone: validatedData.phone,
-          experience: validatedData.experience,
-          whyJoin: validatedData.whyJoin,
-          aboutYourself: validatedData.aboutYourself,
+          ...validatedData,
           cvLink: validatedData.cvLink || null,
         }
+      }).catch((e) => {
+        if (e instanceof Prisma.PrismaClientKnownRequestError) {
+          // Handle unique constraint violations
+          if (e.code === 'P2002') {
+            throw new Error('This student ID or email is already registered')
+          }
+        }
+        throw e
       })
 
       console.log('Created member:', member)
