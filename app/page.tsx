@@ -1,12 +1,13 @@
 "use client"
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, Suspense } from 'react'
 import { Shield, Code, Monitor, Lightbulb, Network, Gamepad, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { useTheme } from 'next-themes'
-import { MemberSpotlight } from '@/components/member-spotlight'
+import { MemberSpotlight, MemberSpotlightSkeleton } from '@/components/member-spotlight'
+import { LoadingSkeleton } from "@/components/ui/loading-skeleton"
 
 const features = [
   {

@@ -10,9 +10,38 @@ import { LayoutWrapper } from '@/components/layout-wrapper';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'BGCTUB IT Club',
+  title: {
+    default: 'BGCTUB IT Club',
+    template: '%s | BGCTUB IT Club'
+  },
   description: 'Official website of BGCTUB IT Club - Fostering innovation and technology',
-};
+  keywords: ['IT Club', 'BGCTUB', 'Technology', 'Programming', 'Innovation'],
+  authors: [{ name: 'BGCTUB IT Club' }],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://bgctubit.edu.bd',
+    siteName: 'BGCTUB IT Club',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'BGCTUB IT Club'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BGCTUB IT Club',
+    description: 'Official website of BGCTUB IT Club - Fostering innovation and technology',
+    images: ['/og-image.jpg']
+  },
+  robots: {
+    index: true,
+    follow: true
+  }
+}
 
 export default function RootLayout({
   children,

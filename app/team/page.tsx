@@ -25,7 +25,42 @@ const executives = {
       department: "Computer Science & Engineering",
       image: "",
       badges: ["Full Stack", "DevOps", "Cloud"]
-    }
+    },
+    {
+      name: "Tech Lead Name",
+      role: "Technical Team Lead",
+      department: "Computer Science & Engineering",
+      image: "",
+      badges: ["Full Stack", "DevOps", "Cloud"]
+    },
+    {
+      name: "Tech Lead Name",
+      role: "Technical Team Lead",
+      department: "Computer Science & Engineering",
+      image: "",
+      badges: ["Full Stack", "DevOps", "Cloud"]
+    },
+    {
+      name: "Tech Lead Name",
+      role: "Technical Team Lead",
+      department: "Computer Science & Engineering",
+      image: "",
+      badges: ["Full Stack", "DevOps", "Cloud"]
+    },
+    {
+      name: "Tech Lead Name",
+      role: "Technical Team Lead",
+      department: "Computer Science & Engineering",
+      image: "",
+      badges: ["Full Stack", "DevOps", "Cloud"]
+    },
+    {
+      name: "Tech Lead Name",
+      role: "Technical Team Lead",
+      department: "Computer Science & Engineering",
+      image: "",
+      badges: ["Full Stack", "DevOps", "Cloud"]
+    },
   ],
   hr: [
     {
@@ -41,7 +76,15 @@ const executives = {
       department: "Business Administration",
       image: "",
       badges: ["Recruitment", "Training", "Development"]
-    },{
+    },
+    {
+      name: "HR Lead Name",
+      role: "HR Team Lead",
+      department: "Business Administration",
+      image: "",
+      badges: ["Recruitment", "Training", "Development"]
+    },
+    {
       name: "HR Lead Name",
       role: "HR Team Lead",
       department: "Business Administration",
@@ -50,6 +93,27 @@ const executives = {
     }
   ],
   events: [
+    {
+      name: "Event Lead Name",
+      role: "Event Management Lead",
+      department: "Computer Science & Engineering",
+      image: "",
+      badges: ["Planning", "Coordination", "Execution"]
+    },
+    {
+      name: "Event Lead Name",
+      role: "Event Management Lead",
+      department: "Computer Science & Engineering",
+      image: "",
+      badges: ["Planning", "Coordination", "Execution"]
+    },
+    {
+      name: "Event Lead Name",
+      role: "Event Management Lead",
+      department: "Computer Science & Engineering",
+      image: "",
+      badges: ["Planning", "Coordination", "Execution"]
+    },
     {
       name: "Event Lead Name",
       role: "Event Management Lead",
@@ -93,9 +157,37 @@ const executives = {
       department: "Journalism & Media Studies",
       image: "",
       badges: ["Communication", "Media", "Outreach"]
+    },
+    {
+      name: "PR Lead Name",
+      role: "Public Relations Lead",
+      department: "Journalism & Media Studies",
+      image: "",
+      badges: ["Communication", "Media", "Outreach"]
+    },
+    {
+      name: "PR Lead Name",
+      role: "Public Relations Lead",
+      department: "Journalism & Media Studies",
+      image: "",
+      badges: ["Communication", "Media", "Outreach"]
     }
   ],
   marketing: [
+    {
+      name: "Marketing Lead Name",
+      role: "Marketing Team Lead",
+      department: "Business Administration",
+      image: "",
+      badges: ["Strategy", "Digital", "Branding"]
+    },
+    {
+      name: "Marketing Lead Name",
+      role: "Marketing Team Lead",
+      department: "Business Administration",
+      image: "",
+      badges: ["Strategy", "Digital", "Branding"]
+    },
     {
       name: "Marketing Lead Name",
       role: "Marketing Team Lead",
@@ -120,9 +212,9 @@ const executives = {
   ],
   finance: [
     {
-      name: "Finance Lead Name",
+      name: "Soumya Mallik",
       role: "Finance Team Lead",
-      department: "Business Administration",
+      department: "Computer Science & Engineering",
       image: "",
       badges: ["Budget", "Planning", "Analysis"]
     },

@@ -3,47 +3,61 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const advisors = [
   {
-    name: "Dr. John Smith",
-    role: "Technical Advisor",
+    name: "Mohammad Salahuddin Chowdhury",
+    role: "Chief Adviser",
+    designation: "Assistant Professor",
+    department: "Computer Science & Engineering",
     image: "",
-    expertise: "Cybersecurity & Programming",
-    description: "Provides guidance on technical initiatives and cybersecurity programs"
   },
   {
-    name: "Prof. Sarah Johnson",
-    role: "Academic Advisor",
+    name: "Farhana Nasrin",
+      role: "Adviser",
+    designation: "Assistant Professor",
+    department: "Business Administration",
     image: "",
-    expertise: "Computer Science Education",
-    description: "Guides curriculum development and academic programs"
   },
   {
-    name: "Dr. Michael Chen",
-    role: "Research Advisor",
+    name: " Md. Towhidul Islam Jihadi",
+    role: "Adviser",
+    designation: "Lecturer",
+    department: "Law",
     image: "",
-    expertise: "AI & Machine Learning",
-    description: "Leads research initiatives and innovation projects"
   },
   {
-    name: "Eng. Lisa Anderson",
-    role: "Industry Advisor",
+    name: "Ms. Rezuana Haque",
+    role: "Adviser",
+    designation: "Lecturer",
+    department: "Computer Science & Engineering",
     image: "",
-    expertise: "Software Engineering",
-    description: "Provides industry insights and career guidance"
   },
   {
-    name: "Dr. David Wilson",
-    role: "Strategic Advisor",
+    name: " Misbah Uddin Emran",
+    role: "Adviser",
+    designation: "Lecturer",
+    department: "Computer Science & Engineering",
     image: "",
-    expertise: "Technology Management",
-    description: "Advises on strategic planning and growth"
   },
   {
-    name: "Prof. Emma Martinez",
-    role: "Innovation Advisor",
+    name: "Sarwar Kamal",
+    role: "Adviser",
+    designation: "Lecturer",
+    department: "Journalism & Media Studies",
     image: "",
-    expertise: "Digital Innovation",
-    description: "Guides innovation and entrepreneurship initiatives"
-  }
+  },
+  {
+    name: "Ms. Kazi Sanjida Tahrim",
+    role: "Adviser",
+    designation: "Lecturer",
+    department: "Pharmacy",
+    image: "",
+  },
+  {
+    name: "Mohammad Imran Uddin Chowdhury",
+    role: "Adviser",
+    designation: "Lecturer",
+    department: "English",
+    image: "",
+  },
 ]
 
 export default function AdvisoryBoardPage() {
@@ -68,8 +82,8 @@ export default function AdvisoryBoardPage() {
               <p className="text-sm text-muted-foreground">{advisor.role}</p>
             </CardHeader>
             <CardContent>
-              <p className="mb-2 font-medium">Expertise: {advisor.expertise}</p>
-              <p className="text-sm text-muted-foreground">{advisor.description}</p>
+              <p className="mb-2 font-medium">Department: {advisor.department}</p>
+              <p className="mb-2 font-medium">Designation: {advisor.designation}</p>
             </CardContent>
           </Card>
         ))}

@@ -17,6 +17,14 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { cn } from "@/lib/utils"
+
+const BlinkingBadge = () => (
+  <span className="absolute -right-2 -top-1 flex h-2 w-2">
+    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+  </span>
+)
 
 const menuItems = [
   { href: "/team", label: "Executive Members" },
@@ -28,6 +36,7 @@ const menuItems = [
   { href: "/join", label: "Join Us" },
   { href: "/hall-of-fame", label: "Hall of Fame" },
   { href: "/blog", label: "Blog" },
+  { href: "/events/installation", label: "Installation Ceremony", isSpecial: true },
 ]
 
 export default function Navbar() {
@@ -49,8 +58,12 @@ export default function Navbar() {
             {menuItems.map((item) => (
               <NavigationMenuItem key={item.href}>
                 <Link href={item.href} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink className={cn(
+                    navigationMenuTriggerStyle(),
+                    "relative"
+                  )}>
                     {item.label}
+                    {item.isSpecial && <BlinkingBadge />}
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>

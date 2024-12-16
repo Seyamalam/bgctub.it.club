@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Member {
+  id            String   @id @default(cuid())
+  studentId     String   @unique
+  name          String
+  email         String   @unique
+  phone         String
+  department    String
+  semester      String
+  position      String
+  experience    String   @db.Text
+  whyJoin       String   @db.Text
+  aboutYourself String   @db.Text
+  cvLink        String?
+  status        String   @default("pending") // pending, approved, rejected
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+} 

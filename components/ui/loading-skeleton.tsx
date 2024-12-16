@@ -1,21 +1,17 @@
-import { Skeleton } from "@/components/ui/skeleton"
+import { cn } from "@/lib/utils"
 
-export function BlogPostSkeleton() {
+interface LoadingSkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
+  className?: string
+}
+
+export function LoadingSkeleton({ className, ...props }: LoadingSkeletonProps) {
   return (
-    <div className="space-y-4">
-      <div className="space-y-2">
-        <Skeleton className="h-6 w-[90%]" />
-        <div className="flex gap-2">
-          <Skeleton className="h-4 w-20" />
-          <Skeleton className="h-4 w-20" />
-        </div>
-      </div>
-      <Skeleton className="h-24 w-full" />
-      <div className="flex gap-2">
-        <Skeleton className="h-6 w-16 rounded-full" />
-        <Skeleton className="h-6 w-16 rounded-full" />
-        <Skeleton className="h-6 w-16 rounded-full" />
-      </div>
-    </div>
+    <div
+      className={cn(
+        "animate-pulse rounded-md bg-muted",
+        className
+      )}
+      {...props}
+    />
   )
 } 
