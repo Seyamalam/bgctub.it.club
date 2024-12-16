@@ -5,42 +5,42 @@ import { Badge } from "@/components/ui/badge"
 const achievements = [
   {
     title: "Microsoft Learn Student Ambassador",
-    image: "https://i.postimg.cc/KvbrYW6y/mlsa.webp",
+    image: "/images/mlsa.png",
     description: "Empowering students with Microsoft technologies and fostering technical communities.",
     members: ["John Doe", "Jane Smith"],
     badges: ["Microsoft", "Leadership", "Community"]
   },
   {
     title: "BitRooT",
-    image: "https://i.postimg.cc/1XGGH0NT/bitroot.webp",
+    image: "/images/bitroot.png",
     description: "Exploring the fundamentals of computer science and programming.",
     members: ["Alex Johnson", "Sarah Williams"],
     badges: ["Programming", "Education", "Innovation"]
   },
   {
     title: "BitSec",
-    image: "https://i.postimg.cc/3N5jmfWm/bitsec.avif",
+    image: "/images/bitsec.png",
     description: "Cybersecurity research and learning initiative.",
     members: ["Michael Brown", "Emily Davis"],
     badges: ["Security", "Research", "CTF"]
   },
   {
     title: "FlagHunt x Bangladesh Army",
-    image: "https://i.postimg.cc/VLF90Rw0/flaghunt.avif",
+    image: "/images/flaghunt.png",
     description: "Collaborative cybersecurity training program with Bangladesh Army.",
     members: ["David Wilson", "Lisa Anderson"],
     badges: ["Military", "Training", "Security"]
   },
   {
     title: "BASIS Student's Forum",
-    image: "https://i.postimg.cc/wvsctYx9/basis.avif",
+    image: "/images/basis.png",
     description: "Industry connections and practical experience in IT sector.",
     members: ["Robert Taylor", "Emma Martinez"],
     badges: ["Industry", "Networking", "Career"]
   },
   {
     title: "NASA Space Apps",
-    image: "https://i.postimg.cc/zDKF8NPj/nasa.avif",
+    image: "/images/nasa.png",
     description: "International space and science hackathon participation.",
     members: ["James Lee", "Sophia Garcia"],
     badges: ["Space", "Innovation", "Global"]

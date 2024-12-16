@@ -161,10 +161,6 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-
-            <div className="w-full max-w-6xl">
-              <MemberSpotlight />
-            </div>
           </div>
         </div>
       </div>

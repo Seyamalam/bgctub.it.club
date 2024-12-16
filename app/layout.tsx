@@ -20,11 +20,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://bgctubit.edu.bd',
+    url: 'https://bgctub-it-club.vercel.app/',
     siteName: 'BGCTUB IT Club',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'BGCTUB IT Club'
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'BGCTUB IT Club',
     description: 'Official website of BGCTUB IT Club - Fostering innovation and technology',
-    images: ['/og-image.jpg']
+    images: ['/images/og-image.jpg']
   },
   robots: {
     index: true,
