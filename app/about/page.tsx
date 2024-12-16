@@ -9,7 +9,7 @@ export default function AboutPage() {
       <div className="mx-auto max-w-4xl text-center">
         <h1 className="mb-4 text-4xl font-bold">About BGCTUB IT Club</h1>
         <p className="mb-8 text-lg text-muted-foreground">
-          Creating an innovative platform at BGC Trust University Bangladesh
+          Creating an innovative platform at BGC Trust University Bangladesh&apos;s IT Club
         </p>
       </div>
 

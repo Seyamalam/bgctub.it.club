@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { SearchFilter } from "@/components/search-filter"
@@ -27,11 +27,10 @@ export default function BlogPage() {
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(true)
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000))
     
-    // This is where you'd normally fetch from your API
     const newPosts = Array.from({ length: POSTS_PER_PAGE }, (_, i) => ({
       id: `post-${page}-${i}`,
       title: `Blog Post ${page * POSTS_PER_PAGE + i}`,
@@ -45,13 +44,13 @@ export default function BlogPage() {
 
     setPosts(prev => [...prev, ...newPosts])
     setPage(prev => prev + 1)
-    setHasMore(page < 5) // Limit to 5 pages for demo
+    setHasMore(page < 5)
     setLoading(false)
-  }
+  }, [page])
 
   useEffect(() => {
     fetchPosts()
-  }, [])
+  }, [fetchPosts])
 
   return (
     <div className="relative min-h-screen overflow-hidden">

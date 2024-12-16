@@ -163,20 +163,20 @@ export function InstallationCeremony() {
               </div>
 
               <div className="relative pl-6 border-l-2 border-primary/20 hover:border-primary transition-colors">
-                <h4 className="font-medium">President's Speech</h4>
-                <p className="text-sm text-muted-foreground">Vision and aspirations for the club</p>
+                <h4 className="font-medium">President&apos;s Speech</h4>
+                <p className="text-sm text-muted-foreground">President&apos;s vision and aspirations</p>
                 <div className="absolute left-0 top-0 w-2 h-2 -translate-x-[5px] rounded-full bg-primary"></div>
               </div>
 
               <div className="relative pl-6 border-l-2 border-primary/20 hover:border-primary transition-colors">
-                <h4 className="font-medium">Special Guest's Speech</h4>
-                <p className="text-sm text-muted-foreground">Address by Dr. S.M. Shoaib</p>
+                <h4 className="font-medium">Special Guest&apos;s Speech</h4>
+                <p className="text-sm text-muted-foreground">Special Guest&apos;s Speech</p>
                 <div className="absolute left-0 top-0 w-2 h-2 -translate-x-[5px] rounded-full bg-primary"></div>
               </div>
 
               <div className="relative pl-6 border-l-2 border-primary/20 hover:border-primary transition-colors">
-                <h4 className="font-medium">Chief Guest's Speech</h4>
-                <p className="text-sm text-muted-foreground">Address by Prof. Dr. A.F.M. Aowrangazab</p>
+                <h4 className="font-medium">Chief Guest&apos;s Speech</h4>
+                <p className="text-sm text-muted-foreground">Chief Guest&apos;s Speech</p>
                 <div className="absolute left-0 top-0 w-2 h-2 -translate-x-[5px] rounded-full bg-primary"></div>
               </div>
 

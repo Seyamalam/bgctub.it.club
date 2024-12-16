@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, Suspense } from 'react'
+import { useEffect, useRef, Suspense, useCallback } from 'react'
 import { Shield, Code, Monitor, Lightbulb, Network, Gamepad, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -52,6 +52,33 @@ export default function HomePage() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const { theme } = useTheme()
 
+  const createMatrix = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
+    ctx.fillStyle = theme === 'dark' 
+      ? 'rgba(0, 0, 0, 0.05)' 
+      : 'rgba(255, 255, 255, 0.2)'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    
+    ctx.fillStyle = theme === 'dark'
+      ? 'hsl(217, 91%, 60%)' // Blue for dark mode
+      : 'hsl(142, 76%, 36%)' // Green for light mode
+
+    const columns = Math.floor(canvas.width / 20)
+    const drops: number[] = new Array(columns).fill(0)
+
+    const characters = '01BGCTUBILK'
+    ctx.font = '15px monospace'
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = characters[Math.floor(Math.random() * characters.length)]
+      ctx.fillText(text, i * 20, drops[i] * 20)
+      drops[i]++
+
+      if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0
+      }
+    }
+  }, [theme])
+
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -65,41 +92,14 @@ export default function HomePage() {
     }
     setCanvasSize()
 
-    const columns = Math.floor(canvas.width / 20)
-    const drops: number[] = new Array(columns).fill(0)
-
-    const characters = '01BGCTUBILK'
-    ctx.font = '15px monospace'
-
-    const matrix = () => {
-      ctx.fillStyle = theme === 'dark' 
-        ? 'rgba(0, 0, 0, 0.05)' 
-        : 'rgba(255, 255, 255, 0.2)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-      
-      ctx.fillStyle = theme === 'dark'
-        ? 'hsl(217, 91%, 60%)' // Blue for dark mode
-        : 'hsl(142, 76%, 36%)' // Green for light mode
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = characters[Math.floor(Math.random() * characters.length)]
-        ctx.fillText(text, i * 20, drops[i] * 20)
-        drops[i]++
-
-        if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0
-        }
-      }
-    }
-
-    const interval = setInterval(matrix, 50)
+    const interval = setInterval(() => createMatrix(ctx, canvas), 50)
     window.addEventListener('resize', setCanvasSize)
 
     return () => {
       clearInterval(interval)
       window.removeEventListener('resize', setCanvasSize)
     }
-  }, [])
+  }, [createMatrix])
 
   return (
     <div className="relative min-h-screen overflow-hidden">
