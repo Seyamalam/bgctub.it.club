@@ -585,33 +585,33 @@ const executives = {
 
 export default function TeamPage() {
   return (
-    <div className="container py-12 min-h-screen">
-      <div className="mx-auto max-w-4xl text-center mb-12">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+    <div className="container py-8 md:py-12 min-h-screen">
+      <div className="mx-auto max-w-4xl text-center mb-8 md:mb-12">
+        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
           Executive Committee
         </h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Meet our dedicated team members who make BGCTUB IT Club possible
+        <p className="mt-3 md:mt-4 text-base md:text-lg text-muted-foreground">
+          Meet the dedicated team leading BGCTUB IT Club
         </p>
       </div>
 
-      <Tabs defaultValue="admin" className="mx-auto max-w-7xl">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 mb-8">
-          <TabsTrigger value="admin">Administration</TabsTrigger>
-          <TabsTrigger value="tech">Technical Team</TabsTrigger>
-          <TabsTrigger value="events">Event Team</TabsTrigger>
-          <TabsTrigger value="hr">HR Team</TabsTrigger>
-          <TabsTrigger value="finance">Finance Team</TabsTrigger>
-          <TabsTrigger value="pr">PR Team</TabsTrigger>
-          <TabsTrigger value="marketing">Marketing Team</TabsTrigger>
+      <Tabs defaultValue="admin" className="w-full">
+        <TabsList className="w-full max-w-7xl mx-auto mb-12 md:mb-16 flex md:grid md:grid-cols-7 flex-wrap justify-center gap-2 md:gap-0 bg-transparent">
+          <TabsTrigger value="admin" className="text-sm md:text-base">Administration</TabsTrigger>
+          <TabsTrigger value="tech" className="text-sm md:text-base">Tech Team</TabsTrigger>
+          <TabsTrigger value="events" className="text-sm md:text-base">Event Team</TabsTrigger>
+          <TabsTrigger value="hr" className="text-sm md:text-base">HR Team</TabsTrigger>
+          <TabsTrigger value="finance" className="text-sm md:text-base">Finance Team</TabsTrigger>
+          <TabsTrigger value="pr" className="text-sm md:text-base">PR Team</TabsTrigger>
+          <TabsTrigger value="marketing" className="text-sm md:text-base">Marketing Team</TabsTrigger>
         </TabsList>
 
         {Object.entries(executives).map(([team, members]) => (
-          <TabsContent key={team} value={team}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <TabsContent key={team} value={team} className="mt-12 md:mt-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {members.map((member, index) => (
-                <Card key={index} className="group relative overflow-hidden border-0 bg-transparent shadow-none transition-all duration-300 hover:scale-105">
-                  <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+                <Card key={index} className="group relative overflow-hidden border-0 bg-white dark:bg-black/40 shadow-none transition-all duration-300 hover:scale-[1.02] backdrop-blur-sm">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden rounded-t-lg">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -621,50 +621,99 @@ export default function TeamPage() {
                     />
                   </div>
                   
-                  <div className="mt-4 space-y-3 text-center">
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                      <div className="space-y-1">
-                        <p className="text-sm font-medium text-emerald-400">{member.role}</p>
-                        <p className="text-sm text-emerald-300">{member.department}</p>
-                      </div>
-                      
-                      <div className="flex flex-wrap justify-center gap-2">
-                        {member.badges.map((badge, badgeIndex) => (
-                          <span
-                            key={badgeIndex}
-                            className="inline-flex items-center rounded-full bg-emerald-400/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400"
-                          >
-                            {badge}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      <div className="flex justify-center gap-2 pt-2">
-                        <Link href={member.socials.website} className="rounded-full bg-white/10 p-2 text-white hover:bg-white/20">
+                  <div className="p-4 md:p-6 space-y-2 md:space-y-4">
+                    <div className="space-y-1 md:space-y-2 text-center">
+                      <h3 className="text-lg md:text-xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
+                        {member.name}
+                      </h3>
+                      <p className="text-base md:text-lg font-medium text-primary">{member.role}</p>
+                      <p className="text-sm text-muted-foreground">{member.department}</p>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-1.5">
+                      {member.badges.map((badge, badgeIndex) => (
+                        <span
+                          key={badgeIndex}
+                          className="px-2 py-0.5 text-xs md:text-sm bg-primary/10 text-primary rounded-full"
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <div className="flex justify-center gap-2 pt-2 md:pt-4">
+                      {member.socials.website && (
+                        <Link 
+                          href={member.socials.website}
+                          target="_blank"
+                          rel="noopener noreferrer" 
+                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                        >
                           <Globe className="h-4 w-4" />
                         </Link>
-                        <Link href={member.socials.youtube} className="rounded-full bg-white/10 p-2 text-white hover:bg-white/20">
+                      )}
+                      {member.socials.youtube && (
+                        <Link 
+                          href={member.socials.youtube}
+                          target="_blank"
+                          rel="noopener noreferrer" 
+                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                        >
                           <Youtube className="h-4 w-4" />
                         </Link>
-                        <Link href={member.socials.facebook} className="rounded-full bg-white/10 p-2 text-white hover:bg-white/20">
+                      )}
+                      {member.socials.facebook && (
+                        <Link 
+                          href={member.socials.facebook}
+                          target="_blank"
+                          rel="noopener noreferrer" 
+                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                        >
                           <Facebook className="h-4 w-4" />
                         </Link>
-                        <Link href={member.socials.discord} className="rounded-full bg-white/10 p-2 text-white hover:bg-white/20">
+                      )}
+                      {member.socials.discord && (
+                        <Link 
+                          href={member.socials.discord}
+                          target="_blank"
+                          rel="noopener noreferrer" 
+                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                        >
                           <MessageCircle className="h-4 w-4" />
                         </Link>
-                        <Link href={member.socials.telegram} className="rounded-full bg-white/10 p-2 text-white hover:bg-white/20">
+                      )}
+                      {member.socials.telegram && (
+                        <Link 
+                          href={member.socials.telegram}
+                          target="_blank"
+                          rel="noopener noreferrer" 
+                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                        >
                           <Send className="h-4 w-4" />
                         </Link>
-                        <Link href={member.socials.instagram} className="rounded-full bg-white/10 p-2 text-white hover:bg-white/20">
+                      )}
+                      {member.socials.instagram && (
+                        <Link 
+                          href={member.socials.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer" 
+                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                        >
                           <Instagram className="h-4 w-4" />
                         </Link>
-                        <Link href={member.socials.linkedin} className="rounded-full bg-white/10 p-2 text-white hover:bg-white/20">
+                      )}
+                      {member.socials.linkedin && (
+                        <Link 
+                          href={member.socials.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer" 
+                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                        >
                           <Linkedin className="h-4 w-4" />
                         </Link>
-                      </div>
+                      )}
                     </div>
-                  </div>
+                </div>
                 </Card>
               ))}
             </div>
