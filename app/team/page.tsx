@@ -60,7 +60,7 @@ const executives = {
       name: "A.K.M Fahim Chowdhury",
       role: "Treasurer",
       department: "Computer Science & Engineering",
-      image: "/images/team/A.K.M Fahim Chowdhury.jpg",
+      image: "/images/team/AKM Fahim Chowdhury.jpg",
       badges: ["Finance", "Budgeting", "Planning"],
       socials: {
         website: "#",
