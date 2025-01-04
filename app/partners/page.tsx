@@ -18,10 +18,11 @@ const partners = [
     name: "BASIS Student's Forum",
     subtitle: "BGCTUB Chapter",
     description: "BASIS Students' Forum (BSF) is an initiative by the Bangladesh Association of Software and Information Services (BASIS) to nurture future tech leaders. It connects university students with the IT industry through workshops, seminars, hackathons, and competitions. BSF bridges the gap between academic learning and industry needs, providing mentorship, hands-on experience, and leadership opportunities. It also promotes innovation by encouraging participation in global competitions like the NASA Space Apps Challenge. Through BSF, students develop essential skills to thrive in the global tech landscape and excel in their future careers.",
-    logo: "/images/partner/basis.avif",
+    logo: "/images/partner/basis.png",
     website: "https://basis.org.bd/student-forum",
     type: "NATIONAL PARTNER",
-    darkLogo: false
+    darkLogo: true,
+    noPadding: true
   }
 ]
 
@@ -29,8 +30,8 @@ export default function PartnersPage() {
   return (
     <div className="container py-12 min-h-screen">
       <div className="mx-auto max-w-4xl text-center mb-12">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-          Club Partners
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
+          Partners
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
           Meet our valued partners who support and collaborate with BGCTUB IT Club to empower students in technology
@@ -39,7 +40,7 @@ export default function PartnersPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {partners.map((partner, index) => (
-          <Card key={index} className="group relative overflow-hidden border-0 bg-black/40 shadow-none transition-all duration-300 hover:scale-[1.02] backdrop-blur-sm p-8 rounded-lg">
+          <Card key={index} className="group relative overflow-hidden border-0 bg-white dark:bg-black/40 shadow-none transition-all duration-300 hover:scale-[1.02] backdrop-blur-sm p-8 rounded-lg">
             <div className={cn(
               "relative aspect-[3/2] w-full overflow-hidden rounded-lg mb-8",
               partner.darkLogo ? "bg-white" : "bg-black"
@@ -49,7 +50,8 @@ export default function PartnersPage() {
                 alt={partner.name}
                 fill
                 className={cn(
-                  "object-contain p-6",
+                  "object-contain",
+                  partner.noPadding ? "" : "p-6",
                   partner.darkLogo ? "" : "filter brightness-0 invert"
                 )}
                 priority
@@ -58,10 +60,12 @@ export default function PartnersPage() {
             
             <div className="space-y-4">
               <div className="space-y-2 text-center">
-                <h3 className="text-2xl font-bold text-white">{partner.name}</h3>
-                <p className="text-lg font-medium text-emerald-400">{partner.subtitle}</p>
-                <p className="text-sm font-medium text-emerald-300 mb-4">{partner.type}</p>
-                <p className="text-sm text-emerald-100/80 leading-relaxed">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
+                  {partner.name}
+                </h3>
+                <p className="text-lg font-medium text-primary">{partner.subtitle}</p>
+                <p className="text-sm font-medium text-primary/80 mb-4">{partner.type}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {partner.description}
                 </p>
                 
@@ -70,7 +74,7 @@ export default function PartnersPage() {
                     href={partner.website}
                     target="_blank"
                     rel="noopener noreferrer" 
-                    className="rounded-full bg-white/10 px-6 py-2 text-white hover:bg-white/20 flex items-center gap-2 transition-colors"
+                    className="rounded-full bg-primary/10 hover:bg-primary/20 px-6 py-2 text-primary flex items-center gap-2 transition-colors"
                   >
                     <Globe className="h-4 w-4" />
                     <span>Visit Website</span>

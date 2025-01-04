@@ -22,38 +22,6 @@ const advisors = [
     }
   },
   {
-    name: "Ms. Rezuana Haque",
-    role: "Lecturer",
-    department: "Department of Computer Science & Engineering",
-    image: "/images/advisor/ms Rezuana Haque_20241214_120418_0000.jpg",
-    type: "ADVISER",
-    socials: {
-      website: "#",
-      youtube: "#",
-      facebook: "#",
-      discord: "#",
-      telegram: "#",
-      instagram: "#",
-      linkedin: "#"
-    }
-  },
-  {
-    name: "Ms. Kazi Sanjida Tahrim",
-    role: "Lecturer",
-    department: "Department of Pharmacy",
-    image: "/images/advisor/Ms Kazi Sanjida Tahrim_20241214_120326_0001.jpg",
-    type: "ADVISER",
-    socials: {
-      website: "#",
-      youtube: "#",
-      facebook: "#",
-      discord: "#",
-      telegram: "#",
-      instagram: "#",
-      linkedin: "#"
-    }
-  },
-  {
     name: "Ms. Farhana Nasrin",
     role: "Assistant Professor",
     department: "Department of Business Administration",
@@ -70,10 +38,26 @@ const advisors = [
     }
   },
   {
-    name: "Mr. Sarwar Kamal",
+    name: "Mr. Md. Towhidul Islam Jihadi",
     role: "Lecturer",
-    department: "Department of Journalism & Media Studies",
-    image: "/images/advisor/Mr Sarwar Kamal_20241214_112034_0002.jpg",
+    department: "Department of Law",
+    image: "/images/advisor/Md Towhidul Islam Jihadi_20241214_112034_0001.jpg",
+    type: "ADVISER",
+    socials: {
+      website: "#",
+      youtube: "#",
+      facebook: "#",
+      discord: "#",
+      telegram: "#",
+      instagram: "#",
+      linkedin: "#"
+    }
+  },
+  {
+    name: "Ms. Rezuana Haque",
+    role: "Lecturer",
+    department: "Department of Computer Science & Engineering",
+    image: "/images/advisor/ms Rezuana Haque_20241214_120418_0000.jpg",
     type: "ADVISER",
     socials: {
       website: "#",
@@ -102,10 +86,10 @@ const advisors = [
     }
   },
   {
-    name: "Mr. Md. Imran Uddin Chowdhury",
+    name: "Mr. Sarwar Kamal",
     role: "Lecturer",
-    department: "Department of English",
-    image: "/images/advisor/mr md  Imran Uddin Chowdhury_20241214_112035_0004.jpg",
+    department: "Department of Journalism & Media Studies",
+    image: "/images/advisor/Mr Sarwar Kamal_20241214_112034_0002.jpg",
     type: "ADVISER",
     socials: {
       website: "#",
@@ -118,10 +102,26 @@ const advisors = [
     }
   },
   {
-    name: "Mr. Md. Towhidul Islam Jihadi",
+    name: "Ms. Kazi Sanjida Tahrim",
     role: "Lecturer",
-    department: "Department of Law",
-    image: "/images/advisor/Md Towhidul Islam Jihadi_20241214_112034_0001.jpg",
+    department: "Department of Pharmacy",
+    image: "/images/advisor/Ms Kazi Sanjida Tahrim_20241214_120326_0001.jpg",
+    type: "ADVISER",
+    socials: {
+      website: "#",
+      youtube: "#",
+      facebook: "#",
+      discord: "#",
+      telegram: "#",
+      instagram: "#",
+      linkedin: "#"
+    }
+  },
+  {
+    name: "Mr. Md. Imran Uddin Chowdhury",
+    role: "Lecturer",
+    department: "Department of English",
+    image: "/images/advisor/mr md  Imran Uddin Chowdhury_20241214_112035_0004.jpg",
     type: "ADVISER",
     socials: {
       website: "#",

@@ -28,8 +28,9 @@ const menuItems = [
   { href: "/faq", label: "FAQ" },
   { href: "/join", label: "Join Us" },
   { href: "/hall-of-fame", label: "Hall of Fame" },
-  { href: "/blog", label: "Blog" },
+  { href: "/news", label: "News" },
   { href: "/partners", label: "Club Partners" },
+  { href: "/members", label: "General Members" },
 ]
 
 export default function Navbar() {

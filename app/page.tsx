@@ -8,6 +8,7 @@ import { Card } from '@/components/ui/card'
 import { useTheme } from 'next-themes'
 import { MemberSpotlight, MemberSpotlightSkeleton } from '@/components/member-spotlight'
 import { LoadingSkeleton } from "@/components/ui/loading-skeleton"
+import Image from "next/image"
 
 const features = [
   {
