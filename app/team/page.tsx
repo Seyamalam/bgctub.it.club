@@ -43,7 +43,7 @@ const executives = {
     {
       name: "Asrar Kawsain Tahmid",
       role: "General Secretary",
-      department: "Computer Science & Engineering",
+      department: "Department of Business Administration",
       image: "/images/team/Asrar Kawsain Tahmid.jpg",
       badges: ["Administration", "Coordination", "Management"],
       socials: {
@@ -59,7 +59,7 @@ const executives = {
     {
       name: "A.K.M Fahim Chowdhury",
       role: "Treasurer",
-      department: "Computer Science & Engineering",
+      department: "Department of Law",
       image: "/images/team/AKM Fahim Chowdhury.jpg",
       badges: ["Finance", "Budgeting", "Planning"],
       socials: {
@@ -75,7 +75,7 @@ const executives = {
     {
       name: "Sayem Mannan",
       role: "Organizing Secretary",
-      department: "Computer Science & Engineering",
+      department: "Department of Business Administration",
       image: "/images/team/Sayem Mannan.jpg",
       badges: ["Organization", "Events", "Coordination"],
       socials: {
@@ -93,7 +93,7 @@ const executives = {
     {
       name: "Alahi Majnur Osama",
       role: "Technical Team Member",
-      department: "Computer Science & Engineering",
+      department: "Department of Computer Science & Engineering",
       image: "/images/team/Alahi Majnur Osama.jpg",
       badges: ["Full Stack", "DevOps", "Cloud"],
       socials: {
@@ -109,7 +109,7 @@ const executives = {
     {
       name: "Md. Tahmidul Alam Ahad",
       role: "Technical Team Member",
-      department: "Computer Science & Engineering",
+      department: "Department of Computer Science & Engineering",
       image: "/images/team/Md Tahmidul Alam Ahad.jpg",
       badges: ["Frontend", "UI/UX", "React"],
       socials: {
@@ -125,7 +125,7 @@ const executives = {
     {
       name: "Touhidul Alam Seyam",
       role: "Technical Team Member",
-      department: "Computer Science & Engineering",
+      department: "Department of  Computer Science & Engineering",
       image: "/images/team/Touhidul Alam Seyam.jpg",
       badges: ["Backend", "Database", "API"],
       socials: {
@@ -141,7 +141,7 @@ const executives = {
     {
       name: "Ekthiar Uddin",
       role: "Technical Team Member",
-      department: "Computer Science & Engineering",
+      department: "Department of Computer Science & Engineering",
       image: "/images/team/Ekthiar Uddin.jpg",
       badges: ["DevOps", "Cloud", "Security"],
       socials: {
@@ -157,7 +157,7 @@ const executives = {
     {
       name: "Anik Das",
       role: "Technical Team Member",
-      department: "Computer Science & Engineering",
+      department: "Department of Computer Science & Engineering",
       image: "/images/team/Anik Das.jpg",
       badges: ["Frontend", "Mobile", "UI/UX"],
       socials: {
@@ -173,7 +173,7 @@ const executives = {
     {
       name: "Shahriar Faysal",
       role: "Technical Team Member",
-      department: "Computer Science & Engineering",
+      department: "Department of Computer Science & Engineering",
       image: "/images/team/Shahriar Faysal.jpg",
       badges: ["Backend", "Database", "API"],
       socials: {
@@ -189,7 +189,7 @@ const executives = {
     {
       name: "Md Imran Chowdhury",
       role: "Technical Team Member",
-      department: "Computer Science & Engineering",
+      department: "Department of Computer Science & Engineering",
       image: "/images/team/Md Imran Chowdhury.jpg",
       badges: ["Full Stack", "DevOps", "Security"],
       socials: {
@@ -205,7 +205,7 @@ const executives = {
     {
       name: "Syeda Tasfia Tabassum",
       role: "Technical Team Member",
-      department: "Computer Science & Engineering",
+      department: "Department of Computer Science & Engineering",
       image: "/images/team/Syeda Tasfia Tabassum.jpg",
       badges: ["Frontend", "UI/UX", "Design"],
       socials: {
@@ -223,7 +223,7 @@ const executives = {
     {
       name: "Naymul Hossen",
       role: "Event Team Member",
-      department: "Law",
+      department: "Department of Law",
       image: "/images/team/Naymul Hossen.jpg",
       badges: ["Planning", "Coordination", "Management"],
       socials: {
@@ -239,7 +239,7 @@ const executives = {
     {
       name: "Mohammad Jahirul Islam",
       role: "Event Team Member",
-      department: "Law",
+      department: "Department of Law",
       image: "/images/team/Mohammad Jahirul Islam.jpg",
       badges: ["Organization", "Logistics", "Execution"],
       socials: {
@@ -255,7 +255,7 @@ const executives = {
     {
       name: "Md. Nunjiba Maher Chy Elmar",
       role: "Event Team Member",
-      department: "Computer Science & Engineering",
+      department: "Department of Computer Science & Engineering",
       image: "/images/team/Md Nunjiba Maher Chy Elmar.jpg",
       badges: ["Planning", "Coordination", "Support"],
       socials: {
@@ -271,7 +271,7 @@ const executives = {
     {
       name: "Md. Jonaied Ali Zahin",
       role: "Event Team Member",
-      department: "Law",
+      department: "Department of Law",
       image: "/images/team/Md Jonaied Ali Zahin.jpg",
       badges: ["Logistics", "Support", "Coordination"],
       socials: {
@@ -287,7 +287,7 @@ const executives = {
     {
       name: "Najiur Rahman Tajib",
       role: "Event Team Member",
-      department: "Business Administration",
+      department: "Department of Business Administration",
       image: "/images/team/Najiur Rahman Tajib.jpg",
       badges: ["Planning", "Support", "Management"],
       socials: {
@@ -303,7 +303,7 @@ const executives = {
     {
       name: "Mohammad Maruful Islam",
       role: "Event Team Member",
-      department: "English",
+      department: "Department of English",
       image: "/images/team/Mohammad Maruful Islam .jpg",
       badges: ["Organization", "Support", "Execution"],
       socials: {
@@ -321,7 +321,7 @@ const executives = {
     {
       name: "Khadijatul Salim Isha",
       role: "HR Team Member",
-      department: "Pharmacy",
+      department: "Department of Pharmacy",
       image: "/images/team/Khadijatul Salim Isha.jpg",
       badges: ["Recruitment", "Training", "Development"],
       socials: {
@@ -337,7 +337,7 @@ const executives = {
     {
       name: "Muin Uddin Chowdhury",
       role: "HR Team Member",
-      department: "Journalism & Media Studies",
+      department: "Department of Journalism & Media Studies",
       image: "/images/team/Muin Uddin Chowdhury.jpg",
       badges: ["Relations", "Support", "Development"],
       socials: {
@@ -353,7 +353,7 @@ const executives = {
     {
       name: "Umme Habiba Arpi",
       role: "HR Team Member",
-      department: "English",
+      department: "Department of English",
       image: "/images/team/Umme Habiba Arpi.jpg",
       badges: ["Training", "Relations", "Support"],
       socials: {
@@ -371,7 +371,7 @@ const executives = {
     {
       name: "Souradeep Baidya",
       role: "Finance Team Member",
-      department: "Business Administration",
+      department: "Department of Business Administration",
       image: "/images/team/Souradeep Baidya.jpg",
       badges: ["Finance", "Planning", "Analysis"],
       socials: {
@@ -403,7 +403,7 @@ const executives = {
     {
       name: "Nusrat Jahan Mahin",
       role: "Finance Team Member",
-      department: "Business Administration",
+      department: "Department of Business Administration",
       image: "/images/team/Nusrat Jahan Mahin.jpg",
       badges: ["Finance", "Support", "Planning"],
       socials: {
@@ -421,7 +421,7 @@ const executives = {
     {
       name: "Humion Kabir Ovi",
       role: "PR Team Member",
-      department: "Business Administration",
+      department: "Department of Business Administration",
       image: "/images/team/Humion Kabir Ovi.jpg",
       badges: ["Communication", "Media", "Relations"],
       socials: {
@@ -453,7 +453,7 @@ const executives = {
     {
       name: "Shabnur Sultana",
       role: "PR Team Member",
-      department: "Law",
+      department: "Department of Law",
       image: "/images/team/Shabnur Sultana.jpg",
       badges: ["Relations", "Communication", "Media"],
       socials: {
@@ -469,7 +469,7 @@ const executives = {
     {
       name: "Emon Barua",
       role: "PR Team Member",
-      department: "Business Administration",
+      department: "Department of Business Administration",
       image: "/images/team/Emon Barua .jpg",
       badges: ["Media", "Relations", "Support"],
       socials: {
@@ -503,7 +503,7 @@ const executives = {
     {
       name: "Imtias Bin Risvy",
       role: "Marketing Team Member",
-      department: "Business Administration",
+      department: "Department of Business Administration",
       image: "/images/team/Imtias Bin Risvy.jpg",
       badges: ["Strategy", "Digital", "Branding"],
       socials: {
@@ -519,7 +519,7 @@ const executives = {
     {
       name: "Sarwar Ebne Kashem",
       role: "Marketing Team Member",
-      department: "Business Administration",
+      department: "Department of Business Administration",
       image: "/images/team/Sarwar Ebne Kashem.jpg",
       badges: ["Digital", "Content", "Strategy"],
       socials: {
@@ -535,7 +535,7 @@ const executives = {
     {
       name: "Shezan Azad Chowdhury",
       role: "Marketing Team Member",
-      department: "Journalism & Media Studies",
+      department: "Department of Journalism & Media Studies",
       image: "/images/team/Shezan Azad Chowdhury.jpg",
       badges: ["Branding", "Digital", "Content"],
       socials: {
@@ -551,7 +551,7 @@ const executives = {
     {
       name: "Mehzabien Naz Tanisha",
       role: "Marketing Team Member",
-      department: "English",
+      department: "Department of English",
       image: "/images/team/Mehzabien Naz Tanisha.jpg",
       badges: ["Content", "Strategy", "Support"],
       socials: {
@@ -567,7 +567,7 @@ const executives = {
     {
       name: "Mainuddin Sajib",
       role: "Marketing Team Member",
-      department: "Law",
+      department: "Department of Law",
       image: "/images/team/Mainuddin Sajib.jpg",
       badges: ["Digital", "Support", "Content"],
       socials: {

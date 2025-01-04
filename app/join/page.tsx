@@ -28,9 +28,9 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const departments = [
   "CSE",
-  "English",
+  "Department of English",
   "BBA",
-  "Law",
+  "Department of Law",
   "Journalism & Media Studies",
   "Pharmacy",
 ] as const;

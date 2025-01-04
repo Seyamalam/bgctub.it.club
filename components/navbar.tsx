@@ -29,8 +29,8 @@ const menuItems = [
   { href: "/join", label: "Join Us" },
   { href: "/hall-of-fame", label: "Hall of Fame" },
   { href: "/news", label: "News" },
-  { href: "/partners", label: "Club Partners" },
-  { href: "/members", label: "General Members" },
+  { href: "/partners", label: "Partners" },
+  { href: "/members", label: "Members" },
 ]
 
 export default function Navbar() {
