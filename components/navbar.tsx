@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { MoonIcon, SunIcon, Menu, X } from "lucide-react"
+import { MoonIcon, SunIcon, Menu } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import {
@@ -18,13 +18,6 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
-
-const BlinkingBadge = () => (
-  <span className="absolute -right-2 -top-1 flex h-2 w-2">
-    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-  </span>
-)
 
 const menuItems = [
   { href: "/team", label: "Executive Members" },
@@ -63,7 +56,6 @@ export default function Navbar() {
                     "relative"
                   )}>
                     {item.label}
-                    {item.isSpecial && <BlinkingBadge />}
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -86,7 +78,7 @@ export default function Navbar() {
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
+                <Menu className="h-5 w-4" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
