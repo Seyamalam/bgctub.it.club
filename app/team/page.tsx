@@ -11,7 +11,7 @@ const executives = {
     {
       name: "Md Rahat Ibne Sattar",
       role: "President",
-      department: "Computer Science & Engineering",
+      department: "Department of Computer Science & Engineering",
       image: "/images/team/Rahat_ibne_sattar.jpg",
       badges: ["Leadership", "Management", "Strategy"],
       socials: {
@@ -27,7 +27,7 @@ const executives = {
     {
       name: "Meheraj Moazzem",
       role: "Vice President",
-      department: "Computer Science & Engineering",
+      department: "Department of Computer Science & Engineering",
       image: "/images/team/Meheraj_Moazzem.jpg",
       badges: ["Leadership", "Operations", "Planning"],
       socials: {
