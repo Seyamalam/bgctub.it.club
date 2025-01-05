@@ -597,7 +597,7 @@ export default function TeamPage() {
 
       <Tabs defaultValue="admin" className="w-full">
         <TabsList className="w-full max-w-7xl mx-auto mb-12 md:mb-16 flex md:grid md:grid-cols-7 flex-wrap justify-center gap-2 md:gap-0 bg-transparent">
-          <TabsTrigger value="admin" className="text-sm md:text-base">Administration</TabsTrigger>
+          <TabsTrigger value="admin" className="text-sm md:text-base">Core Team</TabsTrigger>
           <TabsTrigger value="tech" className="text-sm md:text-base">Tech Team</TabsTrigger>
           <TabsTrigger value="events" className="text-sm md:text-base">Event Team</TabsTrigger>
           <TabsTrigger value="hr" className="text-sm md:text-base">HR Team</TabsTrigger>
