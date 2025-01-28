@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, Suspense, useCallback } from 'react'
-import { Shield, Code, Monitor, Lightbulb, Network, Gamepad, ArrowRight } from 'lucide-react'
+import { Shield, Code, Monitor, Lightbulb, Network, Gamepad, ArrowRight, Code2, Users2, Rocket, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -9,6 +9,7 @@ import { useTheme } from 'next-themes'
 import { MemberSpotlight, MemberSpotlightSkeleton } from '@/components/member-spotlight'
 import { LoadingSkeleton } from "@/components/ui/loading-skeleton"
 import Image from "next/image"
+import { Globe } from '@/components/ui/globe'
 
 const features = [
   {
@@ -55,13 +56,11 @@ export default function HomePage() {
 
   const createMatrix = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
     ctx.fillStyle = theme === 'dark' 
-      ? 'rgba(0, 0, 0, 0.05)' 
+      ? 'rgba(0, 20, 0, 0.05)' 
       : 'rgba(255, 255, 255, 0.2)'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     
-    ctx.fillStyle = theme === 'dark'
-      ? 'hsl(217, 91%, 60%)' // Blue for dark mode
-      : 'hsl(142, 76%, 36%)' // Green for light mode
+    ctx.fillStyle = 'hsl(142, 76%, 36%)' // Always green for matrix characters
 
     const columns = Math.floor(canvas.width / 20)
     const drops: number[] = new Array(columns).fill(0)
@@ -103,68 +102,113 @@ export default function HomePage() {
   }, [createMatrix])
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      
-      <div className="relative z-10">
-        <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="flex flex-col items-center space-y-12">
-            {/* Hero Section */}
-            <div className="text-center space-y-6 max-w-3xl">
-              <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 backdrop-blur-sm border border-primary/10">
-                <div className="w-24 h-24 md:w-32 md:h-32 relative animate-pulse">
-                  {/* Your logo SVG with gradient */}
-                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="20" y="20" width="60" height="60" className="stroke-primary" strokeWidth="4" />
-                    <path d="M40 40 L40 60 L60 60" className="stroke-primary" strokeWidth="4" />
-                  </svg>
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background opacity-60" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background opacity-60" />
+        
+        {/* Matrix Background */}
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full opacity-30"
+          style={{ mixBlendMode: 'overlay' }}
+        />
+
+        <div className="w-full h-full relative z-10">
+          <div className="w-full h-full flex items-center">
+            <div className="w-full grid lg:grid-cols-2 items-center">
+              <div className="flex flex-col space-y-6 text-center lg:text-left max-w-3xl mx-auto lg:ml-[10%]">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold animate-fade-up">
+                  Welcome to{' '}
+                  <span className="bg-gradient-to-r from-primary via-primary/50 to-primary bg-300% bg-clip-text text-transparent animate-gradient">
+                    BGCTUB IT Club
+                  </span>
+                </h1>
+                <p className="text-lg sm:text-xl text-muted-foreground animate-fade-up [animation-delay:200ms] max-w-xl">
+                  Empowering students through technology, innovation, and collaboration. Join us in shaping the future of IT.
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-up [animation-delay:400ms]">
+                  <Link href="/join">
+                    <Button size="lg" className="group">
+                      Join Now
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                  <Link href="/activities">
+                    <Button size="lg" variant="outline">
+                      Explore Activities
+                    </Button>
+                  </Link>
                 </div>
               </div>
-              
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tighter bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
-                BGCTUB IT CLUB
-              </h1>
-              
-              <p className="text-lg md:text-xl text-muted-foreground">
-                Innovate • Learn • Grow
-              </p>
-
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button asChild size="lg" className="bg-gradient-to-r from-primary to-primary/80">
-                  <Link href="/join">
-                    Join Us <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline">
-                  <Link href="/about">Learn More</Link>
-                </Button>
-              </div>
-            </div>
-
-            {/* Features Grid */}
-            <div className="w-full max-w-6xl">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {features.map((feature, index) => (
-                  <Link key={index} href={feature.link}>
-                    <Card className="p-6 hover-card-effect glass-effect group cursor-pointer">
-                      <div className="flex flex-col items-center text-center space-y-4">
-                        <div className="p-3 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 group-hover:from-primary/20 group-hover:to-primary/10 transition-colors">
-                          <feature.icon className="w-8 h-8 text-primary" />
-                        </div>
-                        <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
-                          {feature.text}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {feature.description}
-                        </p>
-                      </div>
-                    </Card>
-                  </Link>
-                ))}
+              <div className="relative w-full h-full min-h-[400px] lg:min-h-[600px] animate-fade-up [animation-delay:600ms]">
+                <div className="absolute right-[-45%] top-[58%] -translate-y-1/2 w-[150%] aspect-auto">
+                  <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-20 scale-95" />
+                  <Globe size={600} className="w-full h-full" />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 relative">
+        <div className="container">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-up [animation-delay:800ms]">
+            <div className="group p-6 bg-card/50 hover:bg-card/80 rounded-xl border border-border/50 transition-all hover:scale-105">
+              <div className="rounded-full w-12 h-12 bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Code2 className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Technical Skills</h3>
+              <p className="text-muted-foreground">Learn programming, web development, and cutting-edge technologies.</p>
+            </div>
+            <div className="group p-6 bg-card/50 hover:bg-card/80 rounded-xl border border-border/50 transition-all hover:scale-105">
+              <div className="rounded-full w-12 h-12 bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Users2 className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Community</h3>
+              <p className="text-muted-foreground">Connect with like-minded peers and industry professionals.</p>
+            </div>
+            <div className="group p-6 bg-card/50 hover:bg-card/80 rounded-xl border border-border/50 transition-all hover:scale-105">
+              <div className="rounded-full w-12 h-12 bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Rocket className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Projects</h3>
+              <p className="text-muted-foreground">Work on real-world projects and build your portfolio.</p>
+            </div>
+            <div className="group p-6 bg-card/50 hover:bg-card/80 rounded-xl border border-border/50 transition-all hover:scale-105">
+              <div className="rounded-full w-12 h-12 bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Sparkles className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Events</h3>
+              <p className="text-muted-foreground">Participate in workshops, hackathons, and tech talks.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 relative">
+        <div className="container">
+          <div className="relative rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10" />
+            <div className="relative p-8 sm:p-12 md:p-16 text-center">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4 animate-fade-up">Ready to Start Your Journey?</h2>
+              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-up [animation-delay:200ms]">
+                Join BGCTUB IT Club today and become part of a thriving community of tech enthusiasts.
+              </p>
+              <Link href="/join" className="animate-fade-up [animation-delay:400ms] inline-block">
+                <Button size="lg" className="group">
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

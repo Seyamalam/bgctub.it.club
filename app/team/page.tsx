@@ -585,71 +585,88 @@ const executives = {
 
 export default function TeamPage() {
   return (
-    <div className="container py-8 md:py-12 min-h-screen">
-      <div className="mx-auto max-w-4xl text-center mb-8 md:mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
+    <div className="container px-4 sm:px-6 py-6 sm:py-8 md:py-12 min-h-screen">
+      <div className="mx-auto max-w-4xl text-center mb-6 sm:mb-8 md:mb-12">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold animate-gradient bg-gradient-to-r from-primary via-primary/50 to-primary bg-300% bg-clip-text text-transparent">
           Executive Committee
         </h1>
-        <p className="mt-3 md:mt-4 text-base md:text-lg text-muted-foreground">
+        <p className="mt-2 sm:mt-3 md:mt-4 text-sm sm:text-base md:text-lg text-muted-foreground animate-fade-in">
           Meet the dedicated team leading BGCTUB IT Club
         </p>
       </div>
 
       <Tabs defaultValue="admin" className="w-full">
-        <TabsList className="w-full max-w-7xl mx-auto mb-12 md:mb-16 flex md:grid md:grid-cols-7 flex-wrap justify-center gap-2 md:gap-0 bg-transparent">
-          <TabsTrigger value="admin" className="text-sm md:text-base">Core Team</TabsTrigger>
-          <TabsTrigger value="tech" className="text-sm md:text-base">Tech Team</TabsTrigger>
-          <TabsTrigger value="events" className="text-sm md:text-base">Event Team</TabsTrigger>
-          <TabsTrigger value="hr" className="text-sm md:text-base">HR Team</TabsTrigger>
-          <TabsTrigger value="finance" className="text-sm md:text-base">Finance Team</TabsTrigger>
-          <TabsTrigger value="pr" className="text-sm md:text-base">PR Team</TabsTrigger>
-          <TabsTrigger value="marketing" className="text-sm md:text-base">Marketing Team</TabsTrigger>
-        </TabsList>
+        <div className="w-full overflow-x-auto scrollbar-none -mx-4 sm:mx-0 px-4 sm:px-0">
+          <TabsList className="w-full max-w-7xl mx-auto mb-8 sm:mb-10 md:mb-16 inline-flex flex-nowrap md:grid md:grid-cols-7 justify-start md:justify-center gap-1.5 sm:gap-2 md:gap-0 bg-transparent min-w-full md:min-w-0 animate-fade-in">
+            <TabsTrigger value="admin" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">Core Team</TabsTrigger>
+            <TabsTrigger value="tech" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">Tech Team</TabsTrigger>
+            <TabsTrigger value="events" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">Event Team</TabsTrigger>
+            <TabsTrigger value="hr" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">HR Team</TabsTrigger>
+            <TabsTrigger value="finance" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">Finance Team</TabsTrigger>
+            <TabsTrigger value="pr" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">PR Team</TabsTrigger>
+            <TabsTrigger value="marketing" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">Marketing Team</TabsTrigger>
+          </TabsList>
+        </div>
 
         {Object.entries(executives).map(([team, members]) => (
-          <TabsContent key={team} value={team} className="mt-12 md:mt-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <TabsContent key={team} value={team} className="mt-8 sm:mt-10 md:mt-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
               {members.map((member, index) => (
-                <Card key={index} className="group relative overflow-hidden border-0 bg-white dark:bg-black/40 shadow-none transition-all duration-300 hover:scale-[1.02] backdrop-blur-sm">
+                <Card 
+                  key={index} 
+                  className="group relative overflow-hidden border-0 bg-white/5 dark:bg-black/40 shadow-none backdrop-blur-sm
+                    hover:shadow-xl hover:shadow-primary/20 hover:border-primary/20 hover:bg-white/10 dark:hover:bg-black/50
+                    transform transition-all duration-300 hover:scale-[1.02] animate-fade-up"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
                   <div className="relative aspect-[3/4] w-full overflow-hidden rounded-t-lg">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <Image
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover"
+                      className="object-cover transform transition-transform duration-500 group-hover:scale-105"
                       priority={index < 6}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      quality={85}
+                      loading={index < 6 ? "eager" : "lazy"}
                     />
                   </div>
                   
-                  <div className="p-4 md:p-6 space-y-2 md:space-y-4">
-                    <div className="space-y-1 md:space-y-2 text-center">
-                      <h3 className="text-lg md:text-xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
+                  <div className="p-3 sm:p-4 md:p-6 space-y-1.5 sm:space-y-2 md:space-y-4 relative z-10">
+                    <div className="space-y-0.5 sm:space-y-1 md:space-y-2 text-center">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary bg-300% bg-clip-text text-transparent group-hover:animate-gradient">
                         {member.name}
                       </h3>
-                      <p className="text-base md:text-lg font-medium text-primary">{member.role}</p>
-                      <p className="text-sm text-muted-foreground">{member.department}</p>
+                      <p className="text-sm sm:text-base md:text-lg font-medium text-primary transition-colors duration-300">{member.role}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground/80 group-hover:text-muted-foreground transition-colors duration-300">{member.department}</p>
                     </div>
 
-                    <div className="flex flex-wrap justify-center gap-1.5">
+                    <div className="flex flex-wrap justify-center gap-1 sm:gap-1.5">
                       {member.badges.map((badge, badgeIndex) => (
                         <span
                           key={badgeIndex}
-                          className="px-2 py-0.5 text-xs md:text-sm bg-primary/10 text-primary rounded-full"
+                          className="px-1.5 sm:px-2 py-0.5 text-xs sm:text-sm bg-primary/5 text-primary rounded-full
+                            border border-primary/10 group-hover:bg-primary/10 group-hover:border-primary/20
+                            transition-all duration-300"
                         >
                           {badge}
                         </span>
                       ))}
                     </div>
                     
-                    <div className="flex justify-center gap-2 pt-2 md:pt-4">
+                    <div className="flex justify-center gap-1.5 sm:gap-2 pt-1.5 sm:pt-2 md:pt-4">
                       {member.socials.website && (
                         <Link 
                           href={member.socials.website}
                           target="_blank"
                           rel="noopener noreferrer" 
-                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                          className="rounded-full bg-primary/5 hover:bg-primary/15 p-1.5 sm:p-2 text-primary
+                            transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20
+                            touch-manipulation"
+                          aria-label={`Visit ${member.name}'s website`}
                         >
-                          <Globe className="h-4 w-4" />
+                          <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </Link>
                       )}
                       {member.socials.youtube && (
@@ -657,9 +674,12 @@ export default function TeamPage() {
                           href={member.socials.youtube}
                           target="_blank"
                           rel="noopener noreferrer" 
-                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                          className="rounded-full bg-primary/5 hover:bg-primary/15 p-1.5 sm:p-2 text-primary
+                            transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20
+                            touch-manipulation"
+                          aria-label={`Watch ${member.name}'s YouTube channel`}
                         >
-                          <Youtube className="h-4 w-4" />
+                          <Youtube className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </Link>
                       )}
                       {member.socials.facebook && (
@@ -667,9 +687,12 @@ export default function TeamPage() {
                           href={member.socials.facebook}
                           target="_blank"
                           rel="noopener noreferrer" 
-                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                          className="rounded-full bg-primary/5 hover:bg-primary/15 p-1.5 sm:p-2 text-primary
+                            transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20
+                            touch-manipulation"
+                          aria-label={`Visit ${member.name}'s Facebook page`}
                         >
-                          <Facebook className="h-4 w-4" />
+                          <Facebook className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </Link>
                       )}
                       {member.socials.discord && (
@@ -677,9 +700,12 @@ export default function TeamPage() {
                           href={member.socials.discord}
                           target="_blank"
                           rel="noopener noreferrer" 
-                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                          className="rounded-full bg-primary/5 hover:bg-primary/15 p-1.5 sm:p-2 text-primary
+                            transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20
+                            touch-manipulation"
+                          aria-label={`Join ${member.name}'s Discord server`}
                         >
-                          <MessageCircle className="h-4 w-4" />
+                          <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </Link>
                       )}
                       {member.socials.telegram && (
@@ -687,9 +713,12 @@ export default function TeamPage() {
                           href={member.socials.telegram}
                           target="_blank"
                           rel="noopener noreferrer" 
-                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                          className="rounded-full bg-primary/5 hover:bg-primary/15 p-1.5 sm:p-2 text-primary
+                            transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20
+                            touch-manipulation"
+                          aria-label={`Message ${member.name} on Telegram`}
                         >
-                          <Send className="h-4 w-4" />
+                          <Send className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </Link>
                       )}
                       {member.socials.instagram && (
@@ -697,9 +726,12 @@ export default function TeamPage() {
                           href={member.socials.instagram}
                           target="_blank"
                           rel="noopener noreferrer" 
-                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                          className="rounded-full bg-primary/5 hover:bg-primary/15 p-1.5 sm:p-2 text-primary
+                            transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20
+                            touch-manipulation"
+                          aria-label={`Follow ${member.name} on Instagram`}
                         >
-                          <Instagram className="h-4 w-4" />
+                          <Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </Link>
                       )}
                       {member.socials.linkedin && (
@@ -707,13 +739,16 @@ export default function TeamPage() {
                           href={member.socials.linkedin}
                           target="_blank"
                           rel="noopener noreferrer" 
-                          className="rounded-full bg-primary/10 hover:bg-primary/20 p-2 text-primary"
+                          className="rounded-full bg-primary/5 hover:bg-primary/15 p-1.5 sm:p-2 text-primary
+                            transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20
+                            touch-manipulation"
+                          aria-label={`Connect with ${member.name} on LinkedIn`}
                         >
-                          <Linkedin className="h-4 w-4" />
+                          <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </Link>
                       )}
                     </div>
-                </div>
+                  </div>
                 </Card>
               ))}
             </div>

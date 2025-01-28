@@ -11,17 +11,17 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: {
-    default: 'BGCTUB IT Club',
-    template: '%s | BGCTUB IT Club'
-  },
+  title: 'BGCTUB IT Club',
   description: 'Official website of BGCTUB IT Club - Fostering innovation and technology',
   keywords: ['IT Club', 'BGCTUB', 'Technology', 'Programming', 'Innovation'],
   authors: [{ name: 'BGCTUB IT Club' }],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://bgctub-it-club.vercel.app'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://bgctub-it-club.vercel.app/',
+    url: '/',
+    title: 'BGCTUB IT Club',
+    description: 'Official website of BGCTUB IT Club - Fostering innovation and technology',
     siteName: 'BGCTUB IT Club',
     images: [
       {
