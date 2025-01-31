@@ -9,7 +9,8 @@ import { useTheme } from 'next-themes'
 import { MemberSpotlight, MemberSpotlightSkeleton } from '@/components/member-spotlight'
 import { LoadingSkeleton } from "@/components/ui/loading-skeleton"
 import Image from "next/image"
-import { Globe } from '@/components/ui/globe'
+import { SplineScene } from '@/components/ui/splite'
+import { Spotlight } from '@/components/ui/spotlight'
 
 const features = [
   {
@@ -116,38 +117,40 @@ export default function HomePage() {
         />
 
         <div className="w-full h-full relative z-10">
-          <div className="w-full h-full flex items-center">
-            <div className="w-full grid lg:grid-cols-2 items-center">
-              <div className="flex flex-col space-y-6 text-center lg:text-left max-w-3xl mx-auto lg:ml-[10%]">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold animate-fade-up">
-                  Welcome to{' '}
-                  <span className="bg-gradient-to-r from-primary via-primary/50 to-primary bg-300% bg-clip-text text-transparent animate-gradient">
-                    BGCTUB IT Club
-                  </span>
-                </h1>
-                <p className="text-lg sm:text-xl text-muted-foreground animate-fade-up [animation-delay:200ms] max-w-xl">
-                  Empowering students through technology, innovation, and collaboration. Join us in shaping the future of IT.
-                </p>
-                <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-up [animation-delay:400ms]">
-                  <Link href="/join">
-                    <Button size="lg" className="group">
-                      Join Now
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </Link>
-                  <Link href="/activities">
-                    <Button size="lg" variant="outline">
-                      Explore Activities
-                    </Button>
-                  </Link>
-                </div>
+          <div className="w-full h-full grid lg:grid-cols-2 items-center">
+            {/* Left content */}
+            <div className="flex flex-col justify-center px-4 lg:px-16 space-y-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold animate-fade-up">
+                Welcome to{' '}
+                <span className="bg-gradient-to-r from-primary via-primary/50 to-primary bg-300% bg-clip-text text-transparent animate-gradient">
+                  BGCTUB IT Club
+                </span>
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground animate-fade-up [animation-delay:200ms] max-w-xl">
+                Empowering students through technology, innovation, and collaboration. Join us in shaping the future of IT.
+              </p>
+              <div className="flex flex-wrap gap-4 animate-fade-up [animation-delay:400ms]">
+                <Link href="/join">
+                  <Button size="lg" className="group">
+                    Join Now
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link href="/activities">
+                  <Button size="lg" variant="outline">
+                    Explore Activities
+                  </Button>
+                </Link>
               </div>
-              <div className="relative w-full h-full min-h-[400px] lg:min-h-[600px] animate-fade-up [animation-delay:600ms]">
-                <div className="absolute right-[-45%] top-[58%] -translate-y-1/2 w-[150%] aspect-auto">
-                  <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-20 scale-95" />
-                  <Globe size={600} className="w-full h-full" />
-                </div>
-              </div>
+            </div>
+
+            {/* Right content - Robot */}
+            <div className="relative w-[100%] h-[100vh] -right-[-15%] -top-[5vh]">
+              <SplineScene 
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="w-full h-full scale-100"
+
+              />
             </div>
           </div>
         </div>
