@@ -596,21 +596,56 @@ export default function TeamPage() {
       </div>
 
       <Tabs defaultValue="admin" className="w-full">
-        <div className="w-full overflow-x-auto scrollbar-none -mx-4 sm:mx-0 px-4 sm:px-0">
-          <TabsList className="w-full max-w-7xl mx-auto mb-8 sm:mb-10 md:mb-16 inline-flex flex-nowrap md:grid md:grid-cols-7 justify-start md:justify-center gap-1.5 sm:gap-2 md:gap-0 bg-transparent min-w-full md:min-w-0 animate-fade-in">
-            <TabsTrigger value="admin" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">Core Team</TabsTrigger>
-            <TabsTrigger value="tech" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">Tech Team</TabsTrigger>
-            <TabsTrigger value="events" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">Event Team</TabsTrigger>
-            <TabsTrigger value="hr" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">HR Team</TabsTrigger>
-            <TabsTrigger value="finance" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">Finance Team</TabsTrigger>
-            <TabsTrigger value="pr" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">PR Team</TabsTrigger>
-            <TabsTrigger value="marketing" className="text-xs sm:text-sm md:text-base whitespace-nowrap px-3 py-1.5 sm:px-3 sm:py-2">Marketing Team</TabsTrigger>
+        <div className="w-full overflow-x-auto scrollbar-none">
+          <TabsList className="w-full inline-flex items-center justify-start md:justify-between border-b border-border/50 bg-background/5 backdrop-blur-sm">
+            <TabsTrigger 
+              value="admin" 
+              className="flex-1 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-transparent text-xs sm:text-sm md:text-base whitespace-nowrap px-4 py-2.5 transition-all duration-300 hover:text-primary/80 rounded-none"
+            >
+              Core Team
+            </TabsTrigger>
+            <TabsTrigger 
+              value="tech" 
+              className="flex-1 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-transparent text-xs sm:text-sm md:text-base whitespace-nowrap px-4 py-2.5 transition-all duration-300 hover:text-primary/80 rounded-none"
+            >
+              Tech Team
+            </TabsTrigger>
+            <TabsTrigger 
+              value="events" 
+              className="flex-1 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-transparent text-xs sm:text-sm md:text-base whitespace-nowrap px-4 py-2.5 transition-all duration-300 hover:text-primary/80 rounded-none"
+            >
+              Event Team
+            </TabsTrigger>
+            <TabsTrigger 
+              value="hr" 
+              className="flex-1 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-transparent text-xs sm:text-sm md:text-base whitespace-nowrap px-4 py-2.5 transition-all duration-300 hover:text-primary/80 rounded-none"
+            >
+              HR Team
+            </TabsTrigger>
+            <TabsTrigger 
+              value="finance" 
+              className="flex-1 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-transparent text-xs sm:text-sm md:text-base whitespace-nowrap px-4 py-2.5 transition-all duration-300 hover:text-primary/80 rounded-none"
+            >
+              Finance Team
+            </TabsTrigger>
+            <TabsTrigger 
+              value="pr" 
+              className="flex-1 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-transparent text-xs sm:text-sm md:text-base whitespace-nowrap px-4 py-2.5 transition-all duration-300 hover:text-primary/80 rounded-none"
+            >
+              PR Team
+            </TabsTrigger>
+            <TabsTrigger 
+              value="marketing" 
+              className="flex-1 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-transparent text-xs sm:text-sm md:text-base whitespace-nowrap px-4 py-2.5 transition-all duration-300 hover:text-primary/80 rounded-none"
+            >
+              Marketing Team
+            </TabsTrigger>
           </TabsList>
         </div>
 
         {Object.entries(executives).map(([team, members]) => (
           <TabsContent key={team} value={team} className="mt-8 sm:mt-10 md:mt-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {members.map((member, index) => (
                 <Card 
                   key={index} 

@@ -5,7 +5,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Card } from "@/components/ui/card"
-import { MatrixBackground } from "@/components/matrix-background"
 
 const faqItems = [
   {
@@ -41,7 +40,6 @@ const faqItems = [
 export default function FaqPage() {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <MatrixBackground />
       <div className="relative z-10">
         <div className="container py-12">
           <div className="mx-auto max-w-4xl text-center">

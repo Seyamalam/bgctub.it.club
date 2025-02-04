@@ -139,23 +139,30 @@ export default function AdvisoryBoardPage() {
   return (
     <div className="container px-4 sm:px-6 py-8 sm:py-10 md:py-12 min-h-screen">
       <div className="mx-auto max-w-4xl text-center mb-8 sm:mb-10 md:mb-12">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold animate-gradient bg-gradient-to-r from-primary via-primary/50 to-primary bg-300% bg-clip-text text-transparent">
           Advisory Board
         </h1>
-        <p className="mt-2 sm:mt-3 md:mt-4 text-sm sm:text-base md:text-lg text-muted-foreground">
+        <p className="mt-2 sm:mt-3 md:mt-4 text-sm sm:text-base md:text-lg text-muted-foreground animate-fade-in">
           Meet our experienced advisors who guide BGCTUB IT Club towards excellence
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         {advisors.slice(0, 4).map((advisor, index) => (
-          <Card key={index} className="group relative overflow-hidden border-0 bg-transparent shadow-none transition-all duration-300 hover:scale-105">
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+          <Card 
+            key={index} 
+            className="group relative overflow-hidden border-0 bg-white/5 dark:bg-black/40 shadow-none backdrop-blur-sm
+              hover:shadow-xl hover:shadow-primary/20 hover:border-primary/20 hover:bg-white/10 dark:hover:bg-black/50
+              transform transition-all duration-300 hover:scale-[1.02] animate-fade-up"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-t-lg">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <Image
                 src={advisor.image}
                 alt={advisor.name}
                 fill
-                className="object-cover"
+                className="object-cover transform transition-transform duration-500 group-hover:scale-105"
                 priority={index < 6}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 quality={85}
@@ -163,95 +170,82 @@ export default function AdvisoryBoardPage() {
               />
             </div>
             
-            <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-center">
-              <div className="space-y-1 sm:space-y-2">
-                <h3 className="text-lg sm:text-xl font-bold text-white">{advisor.name}</h3>
-                <div className="space-y-0.5 sm:space-y-1">
-                  <p className="text-xs sm:text-sm font-medium text-emerald-400">{advisor.type}</p>
-                  <p className="text-xs sm:text-sm text-emerald-300">{advisor.role}</p>
-                  <p className="text-xs sm:text-sm text-emerald-300">{advisor.department}</p>
-                </div>
-                
-                <div className="flex justify-center gap-1.5 sm:gap-2 pt-1.5 sm:pt-2">
-                  <Link 
-                    href={advisor.socials.website} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Visit ${advisor.name}'s website`}
-                  >
-                    <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.youtube} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Watch ${advisor.name}'s YouTube channel`}
-                  >
-                    <Youtube className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.facebook} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Visit ${advisor.name}'s Facebook page`}
-                  >
-                    <Facebook className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.discord} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Join ${advisor.name}'s Discord server`}
-                  >
-                    <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.telegram} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Chat with ${advisor.name} on Telegram`}
-                  >
-                    <Send className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.instagram} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Follow ${advisor.name} on Instagram`}
-                  >
-                    <Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.linkedin} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Connect with ${advisor.name} on LinkedIn`}
-                  >
-                    <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                </div>
+            <div className="p-3 sm:p-4 md:p-6 space-y-1.5 sm:space-y-2 md:space-y-4">
+              <div className="space-y-0.5 sm:space-y-1 md:space-y-2 text-center">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary bg-300% bg-clip-text text-transparent group-hover:animate-gradient">
+                  {advisor.name}
+                </h3>
+                <p className="text-sm sm:text-base md:text-lg font-medium text-primary transition-colors duration-300">{advisor.type}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground/80 group-hover:text-muted-foreground transition-colors duration-300">{advisor.role}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground/80 group-hover:text-muted-foreground transition-colors duration-300">{advisor.department}</p>
+              </div>
+
+              <div className="flex justify-center gap-1.5 sm:gap-2 pt-1.5 sm:pt-2 md:pt-4">
+                {Object.entries(advisor.socials).map(([platform, url], i) => {
+                  const IconComponent = {
+                    website: Globe,
+                    youtube: Youtube,
+                    facebook: Facebook,
+                    discord: MessageCircle,
+                    telegram: Send,
+                    instagram: Instagram,
+                    linkedin: Linkedin
+                  }[platform] || Globe
+
+                  return (
+                    <Link 
+                      key={platform}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer" 
+                      className="rounded-full bg-primary/5 hover:bg-primary/15 p-1.5 sm:p-2 text-primary
+                        transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20
+                        touch-manipulation"
+                      aria-label={`Visit ${advisor.name}'s ${platform}`}
+                    >
+                      <IconComponent className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    </Link>
+                  )
+                })}
               </div>
             </div>
           </Card>
         ))}
 
         {/* Message Card in the Middle */}
-        <Card className="relative overflow-hidden border-0 bg-black/40 shadow-none flex items-center justify-center p-6 sm:p-8 rounded-lg backdrop-blur-sm">
+        <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 dark:from-black/80 dark:via-black/60 dark:to-black/80 shadow-xl shadow-emerald-900/10 flex items-center justify-center p-6 sm:p-8 rounded-lg backdrop-blur-sm
+          hover:shadow-2xl hover:shadow-emerald-900/20 hover:border-emerald-900/20
+          transform transition-all duration-300 hover:scale-[1.02] animate-fade-up"
+        >
           <div className="text-center space-y-3 sm:space-y-4">
-            <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+            <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 bg-300% bg-clip-text text-transparent">
               Guiding the Future
             </h3>
-            <p className="text-sm sm:text-base text-emerald-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-emerald-100/90 dark:text-emerald-100/80 leading-relaxed">
               Our esteemed advisors bring together diverse expertise from various departments, 
               working collaboratively to shape the next generation of IT professionals at BGCTUB.
             </p>
-            <p className="text-sm sm:text-base text-emerald-400 font-medium">
+            <p className="text-sm sm:text-base text-emerald-400 dark:text-emerald-300 font-medium">
               Together, we innovate, inspire, and lead.
             </p>
           </div>
         </Card>
 
         {advisors.slice(4).map((advisor, index) => (
-          <Card key={index + 4} className="group relative overflow-hidden border-0 bg-transparent shadow-none transition-all duration-300 hover:scale-105">
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+          <Card 
+            key={index + 4} 
+            className="group relative overflow-hidden border-0 bg-white/5 dark:bg-black/40 shadow-none backdrop-blur-sm
+              hover:shadow-xl hover:shadow-emerald-900/20 hover:border-emerald-900/20 hover:bg-white/10 dark:hover:bg-black/50
+              transform transition-all duration-300 hover:scale-[1.02] animate-fade-up"
+            style={{ animationDelay: `${(index + 5) * 100}ms` }}
+          >
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-t-lg">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <Image
                 src={advisor.image}
                 alt={advisor.name}
                 fill
-                className="object-cover"
+                className="object-cover transform transition-transform duration-500 group-hover:scale-105"
                 priority={index < 2}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 quality={85}
@@ -259,66 +253,43 @@ export default function AdvisoryBoardPage() {
               />
             </div>
             
-            <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-center">
-              <div className="space-y-1 sm:space-y-2">
-                <h3 className="text-lg sm:text-xl font-bold text-white">{advisor.name}</h3>
-                <div className="space-y-0.5 sm:space-y-1">
-                  <p className="text-xs sm:text-sm font-medium text-emerald-400">{advisor.type}</p>
-                  <p className="text-xs sm:text-sm text-emerald-300">{advisor.role}</p>
-                  <p className="text-xs sm:text-sm text-emerald-300">{advisor.department}</p>
-                </div>
-                
-                <div className="flex justify-center gap-1.5 sm:gap-2 pt-1.5 sm:pt-2">
-                  <Link 
-                    href={advisor.socials.website} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Visit ${advisor.name}'s website`}
-                  >
-                    <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.youtube} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Watch ${advisor.name}'s YouTube channel`}
-                  >
-                    <Youtube className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.facebook} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Visit ${advisor.name}'s Facebook page`}
-                  >
-                    <Facebook className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.discord} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Join ${advisor.name}'s Discord server`}
-                  >
-                    <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.telegram} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Chat with ${advisor.name} on Telegram`}
-                  >
-                    <Send className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.instagram} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Follow ${advisor.name} on Instagram`}
-                  >
-                    <Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                  <Link 
-                    href={advisor.socials.linkedin} 
-                    className="rounded-full bg-white/10 p-1.5 sm:p-2 text-white hover:bg-white/20 touch-manipulation"
-                    aria-label={`Connect with ${advisor.name} on LinkedIn`}
-                  >
-                    <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </Link>
-                </div>
+            <div className="p-3 sm:p-4 md:p-6 space-y-1.5 sm:space-y-2 md:space-y-4">
+              <div className="space-y-0.5 sm:space-y-1 md:space-y-2 text-center">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary bg-300% bg-clip-text text-transparent group-hover:animate-gradient">
+                  {advisor.name}
+                </h3>
+                <p className="text-sm sm:text-base md:text-lg font-medium text-primary transition-colors duration-300">{advisor.type}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground/80 group-hover:text-muted-foreground transition-colors duration-300">{advisor.role}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground/80 group-hover:text-muted-foreground transition-colors duration-300">{advisor.department}</p>
+              </div>
+
+              <div className="flex justify-center gap-1.5 sm:gap-2 pt-1.5 sm:pt-2 md:pt-4">
+                {Object.entries(advisor.socials).map(([platform, url], i) => {
+                  const IconComponent = {
+                    website: Globe,
+                    youtube: Youtube,
+                    facebook: Facebook,
+                    discord: MessageCircle,
+                    telegram: Send,
+                    instagram: Instagram,
+                    linkedin: Linkedin
+                  }[platform] || Globe
+
+                  return (
+                    <Link 
+                      key={platform}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer" 
+                      className="rounded-full bg-primary/5 hover:bg-primary/15 p-1.5 sm:p-2 text-primary
+                        transform transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20
+                        touch-manipulation"
+                      aria-label={`Visit ${advisor.name}'s ${platform}`}
+                    >
+                      <IconComponent className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    </Link>
+                  )
+                })}
               </div>
             </div>
           </Card>

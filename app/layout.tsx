@@ -6,7 +6,8 @@ import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import { Toaster } from '@/components/ui/sonner';
 import { LayoutWrapper } from '@/components/layout-wrapper';
-import { SpeedInsights } from "@vercel/speed-insights/next" 
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { AuthProvider } from "@/components/auth-provider";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -52,23 +53,25 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-background relative overflow-x-hidden`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <LayoutWrapper>
-            <div className="flex min-h-screen flex-col">
-              <Navbar />
-              <main className="flex-1 px-2 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </LayoutWrapper>
+        <AuthProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <LayoutWrapper>
+              <div className="flex min-h-screen flex-col">
+                <Navbar />
+                <main className="flex-1 px-2 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+                  {children}
+                </main>
+                <Footer />
+              </div>
+            </LayoutWrapper>
+          </ThemeProvider>
           <Toaster />
-        </ThemeProvider>
+        </AuthProvider>
         <SpeedInsights />
       </body>
     </html>

@@ -1,16 +1,11 @@
 "use client"
 
-import { useEffect, useRef, Suspense, useCallback } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import { Shield, Code, Monitor, Lightbulb, Network, Gamepad, ArrowRight, Code2, Users2, Rocket, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import { useTheme } from 'next-themes'
-import { MemberSpotlight, MemberSpotlightSkeleton } from '@/components/member-spotlight'
-import { LoadingSkeleton } from "@/components/ui/loading-skeleton"
-import Image from "next/image"
 import { SplineScene } from '@/components/ui/splite'
-import { Spotlight } from '@/components/ui/spotlight'
 
 const features = [
   {
@@ -119,17 +114,17 @@ export default function HomePage() {
         <div className="w-full h-full relative z-10">
           <div className="w-full h-full grid lg:grid-cols-2 items-center">
             {/* Left content */}
-            <div className="flex flex-col justify-center px-4 lg:px-16 space-y-6">
+            <div className="flex flex-col justify-center px-6 py-12 lg:px-16 space-y-6 text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold animate-fade-up">
                 Welcome to{' '}
                 <span className="bg-gradient-to-r from-primary via-primary/50 to-primary bg-300% bg-clip-text text-transparent animate-gradient">
                   BGCTUB IT Club
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground animate-fade-up [animation-delay:200ms] max-w-xl">
+              <p className="text-lg sm:text-xl text-muted-foreground animate-fade-up [animation-delay:200ms] max-w-xl mx-auto lg:mx-0">
                 Empowering students through technology, innovation, and collaboration. Join us in shaping the future of IT.
               </p>
-              <div className="flex flex-wrap gap-4 animate-fade-up [animation-delay:400ms]">
+              <div className="flex flex-wrap gap-4 animate-fade-up [animation-delay:400ms] justify-center lg:justify-start">
                 <Link href="/join">
                   <Button size="lg" className="group">
                     Join Now
@@ -145,11 +140,10 @@ export default function HomePage() {
             </div>
 
             {/* Right content - Robot */}
-            <div className="relative w-[100%] h-[100vh] -right-[-15%] -top-[5vh]">
+            <div className="hidden lg:block relative w-[100%] h-[100vh] -right-[-15%] -top-[5vh]">
               <SplineScene 
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                 className="w-full h-full scale-100"
-
               />
             </div>
           </div>
@@ -157,9 +151,9 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 relative">
-        <div className="container">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-up [animation-delay:800ms]">
+      <section className="py-12 lg:py-20 relative">
+        <div className="container px-4 lg:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-up [animation-delay:800ms]">
             <div className="group p-6 bg-card/50 hover:bg-card/80 rounded-xl border border-border/50 transition-all hover:scale-105">
               <div className="rounded-full w-12 h-12 bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Code2 className="w-6 h-6" />
@@ -193,13 +187,13 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 relative">
+      <section className="py-12 lg:py-20 relative px-4 lg:px-6">
         <div className="container">
           <div className="relative rounded-2xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10" />
-            <div className="relative p-8 sm:p-12 md:p-16 text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4 animate-fade-up">Ready to Start Your Journey?</h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-up [animation-delay:200ms]">
+            <div className="relative p-6 sm:p-8 md:p-12 lg:p-16 text-center">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 animate-fade-up">Ready to Start Your Journey?</h2>
+              <p className="text-base lg:text-lg text-muted-foreground mb-6 lg:mb-8 max-w-2xl mx-auto animate-fade-up [animation-delay:200ms]">
                 Join BGCTUB IT Club today and become part of a thriving community of tech enthusiasts.
               </p>
               <Link href="/join" className="animate-fade-up [animation-delay:400ms] inline-block">

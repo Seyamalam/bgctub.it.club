@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge"
 import { SearchFilter } from "@/components/search-filter"
 import InfiniteScroll from "react-infinite-scroll-component"
 import { BlogPostSkeleton } from "@/components/ui/loading-skeleton"
-import { MatrixBackground } from "@/components/matrix-background"
 
 interface BlogPost {
   id: string
@@ -54,7 +53,6 @@ export default function BlogPage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <MatrixBackground />
       <div className="relative z-10">
         <div className="container py-12">
           <div className="mx-auto max-w-4xl text-center">
