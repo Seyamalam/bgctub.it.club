@@ -1,6 +1,7 @@
-import { createMember, getMemberByEmail, getMemberByStudentId } from '@/lib/db/queries'
 import { NextResponse } from 'next/server'
+import { prisma } from '@/lib/db'
 import { z } from 'zod'
+import { Prisma } from '@prisma/client'
 
 const membershipSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -9,55 +10,81 @@ const membershipSchema = z.object({
   department: z.string(),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(11, "Phone number must be at least 11 digits"),
+  experience: z.string().min(50, "Please provide more details about your experience"),
+  whyJoin: z.string().min(100, "Please elaborate on why you want to join"),
+  aboutYourself: z.string().min(100, "Please tell us more about yourself"),
+  cvLink: z.string().url().optional(),
 })
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const body = await request.json()
-    const validatedData = membershipSchema.parse(body)
+    const body = await req.json()
+    console.log('Received data:', body)
 
-    // Check if member already exists with same email or student ID
-    const [existingEmail, existingStudentId] = await Promise.all([
-      getMemberByEmail(validatedData.email),
-      getMemberByStudentId(validatedData.studentId)
-    ])
+    try {
+      const validatedData = membershipSchema.parse(body)
+      console.log('Validated data:', validatedData)
 
-    if (existingEmail) {
-      return NextResponse.json(
-        { error: 'A member with this email already exists' },
-        { status: 400 }
-      )
+      // Check if student ID or email already exists
+      const existingMember = await prisma.member.findFirst({
+        where: {
+          OR: [
+            { studentId: validatedData.studentId },
+            { email: validatedData.email }
+          ]
+        }
+      })
+
+      if (existingMember) {
+        console.log('Existing member found:', existingMember)
+        return NextResponse.json(
+          { error: "A membership application with this student ID or email already exists" },
+          { status: 400 }
+        )
+      }
+
+      // Create new member with PostgreSQL-specific handling
+      const member = await prisma.member.create({
+        data: {
+          ...validatedData,
+          cvLink: validatedData.cvLink || null,
+        }
+      }).catch((e) => {
+        if (e instanceof Prisma.PrismaClientKnownRequestError) {
+          // Handle unique constraint violations
+          if (e.code === 'P2002') {
+            throw new Error('This student ID or email is already registered')
+          }
+        }
+        throw e
+      })
+
+      console.log('Created member:', member)
+
+      return NextResponse.json({
+        success: true,
+        message: "Application submitted successfully",
+        member
+      })
+
+    } catch (validationError) {
+      console.error('Validation error:', validationError)
+      if (validationError instanceof z.ZodError) {
+        return NextResponse.json(
+          { error: validationError.errors.map(e => e.message).join(', ') },
+          { status: 400 }
+        )
+      }
+      throw validationError
     }
 
-    if (existingStudentId) {
-      return NextResponse.json(
-        { error: 'A member with this student ID already exists' },
-        { status: 400 }
-      )
-    }
-
-    // Create new member
-    const member = await createMember({
-      student_id: validatedData.studentId,
-      name: validatedData.name,
-      email: validatedData.email,
-      phone: validatedData.phone,
-      department: validatedData.department,
-      semester: validatedData.semester,
-      status: 'pending'
-    })
-
-    return NextResponse.json(member)
   } catch (error) {
-    console.error('Membership submission error:', error)
-    if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        { error: 'Invalid form data', details: error.errors },
-        { status: 400 }
-      )
-    }
+    console.error('Server error:', error)
     return NextResponse.json(
-      { error: 'Failed to submit application' },
+      { 
+        error: "Server error occurred", 
+        details: error instanceof Error ? error.message : "Unknown error"
+      },
       { status: 500 }
     )
   }

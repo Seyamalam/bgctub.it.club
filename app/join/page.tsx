@@ -8,12 +8,14 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -23,14 +25,12 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { useAuth } from "@/components/auth-provider";
-import Link from "next/link";
 
 const departments = [
   "CSE",
-  "Department of English",
+  "Department of English",
   "BBA",
-  "Department of Law",
+  "Department of Law",
   "Journalism & Media Studies",
   "Pharmacy",
 ] as const;
@@ -56,13 +56,15 @@ const formSchema = z.object({
     required_error: "Please select your department",
   }),
   email: z.string().email("Invalid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
   phone: z.string().min(11, "Phone number must be at least 11 digits"),
+  experience: z.string().min(50, "Please provide more details about your experience"),
+  whyJoin: z.string().min(100, "Please elaborate on why you want to join"),
+  aboutYourself: z.string().min(100, "Please tell us more about yourself"),
+  cvLink: z.string().url("Please provide a valid link").optional(),
 });
 
 export default function JoinPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { signUp } = useAuth();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -72,39 +74,33 @@ export default function JoinPage() {
       semester: undefined,
       department: undefined,
       email: "",
-      password: "",
       phone: "",
+      experience: "",
+      whyJoin: "",
+      aboutYourself: "",
+      cvLink: "",
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsSubmitting(true);
+      console.log('Submitting values:', values); // Debug log
 
-      // First, create the auth user
-      await signUp(values.email, values.password);
-
-      // Then submit the member application
       const response = await fetch("/api/membership", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: values.name,
-          studentId: values.studentId,
-          semester: values.semester,
-          department: values.department,
-          email: values.email,
-          phone: values.phone,
-        }),
+        body: JSON.stringify(values),
       });
 
       const data = await response.json();
+      console.log('Response:', data); // Debug log
 
       if (!response.ok) {
         throw new Error(data.error || "Failed to submit application");
       }
 
-      toast.success("Application submitted successfully! Please check your email to verify your account.");
+      toast.success("Application submitted successfully!");
       form.reset();
     } catch (error) {
       console.error('Form submission error:', error);
@@ -246,13 +242,73 @@ export default function JoinPage() {
 
               <FormField
                 control={form.control}
-                name="password"
+                name="experience"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Relevant Experience</FormLabel>
                     <FormControl>
-                      <Input type="password" placeholder="••••••" {...field} />
+                      <Textarea
+                        placeholder="Tell us about your relevant experience..."
+                        className="min-h-[100px]"
+                        {...field}
+                      />
                     </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="whyJoin"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Why do you want to join?</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Tell us why you want to join the IT Club..."
+                        className="min-h-[100px]"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="aboutYourself"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>About Yourself</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Tell us about yourself..."
+                        className="min-h-[100px]"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="cvLink"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>CV Link (Optional)</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="https://drive.google.com/..."
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      Share a link to your CV (Google Drive, Dropbox, etc.)
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -261,13 +317,6 @@ export default function JoinPage() {
               <Button type="submit" className="w-full" disabled={isSubmitting}>
                 {isSubmitting ? "Submitting..." : "Submit Application"}
               </Button>
-
-              <div className="text-center text-sm text-muted-foreground">
-                Already have an account?{" "}
-                <Link href="/login" className="font-medium text-primary hover:underline">
-                  Login here
-                </Link>
-              </div>
             </form>
           </Form>
         </CardContent>
