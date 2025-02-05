@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { useTheme } from 'next-themes'
 import { SplineScene } from '@/components/ui/splite'
 
+
 const features = [
   {
     icon: Shield,
@@ -199,6 +200,12 @@ export default function HomePage() {
               <Link href="/join" className="animate-fade-up [animation-delay:400ms] inline-block">
                 <Button size="lg" className="group">
                   Get Started
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link href="/login" className="animate-fade-up [animation-delay:400ms] inline-block ml-4">
+                <Button size="lg" variant="outline" className="group">
+                  Sign In
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>

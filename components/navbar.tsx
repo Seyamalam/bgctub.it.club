@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { MoonIcon, SunIcon, Menu } from "lucide-react"
+import { MoonIcon, SunIcon, Menu, LogOut } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import {
@@ -19,6 +19,13 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
+import { useSession, signOut } from "next-auth/react"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 const menuItems = [
   { href: "/team", label: "Executive Members" },
@@ -37,9 +44,14 @@ const menuItems = [
 export default function Navbar() {
   const { setTheme, theme } = useTheme()
   const [isOpen, setIsOpen] = React.useState(false)
+  const { data: session, status } = useSession()
 
   const handleNavItemClick = () => {
     setIsOpen(false)
+  }
+
+  const handleSignOut = async () => {
+    await signOut({ redirect: false })
   }
 
   return (
@@ -70,6 +82,40 @@ export default function Navbar() {
         </NavigationMenu>
 
         <div className="flex items-center space-x-4">
+          {/* Auth Status Indicator */}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <div className="flex items-center gap-2">
+                  <div className={cn(
+                    "h-2 w-2 rounded-full",
+                    status === "authenticated" ? "bg-green-500" : "bg-zinc-500"
+                  )} />
+                  <span className="text-sm text-muted-foreground hidden sm:inline-block">
+                    {status === "authenticated" ? session.user?.name || session.user?.email : "Not signed in"}
+                  </span>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{status === "authenticated" ? "Signed in" : "Not signed in"}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          {/* Sign Out Button */}
+          {status === "authenticated" && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handleSignOut}
+              className="hover:text-red-500"
+            >
+              <LogOut className="h-5 w-5" />
+              <span className="sr-only">Sign out</span>
+            </Button>
+          )}
+
+          {/* Theme Toggle */}
           <Button
             variant="ghost"
             size="icon"
@@ -105,6 +151,31 @@ export default function Navbar() {
                     {item.label}
                   </Link>
                 ))}
+                {/* Mobile Auth Status and Sign Out */}
+                <div className="mt-4 px-2 py-2 border-t border-border/10">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className={cn(
+                        "h-2 w-2 rounded-full",
+                        status === "authenticated" ? "bg-green-500" : "bg-zinc-500"
+                      )} />
+                      <span className="text-sm text-muted-foreground">
+                        {status === "authenticated" ? session.user?.name || session.user?.email : "Not signed in"}
+                      </span>
+                    </div>
+                    {status === "authenticated" && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={handleSignOut}
+                        className="hover:text-red-500"
+                      >
+                        <LogOut className="h-4 w-4 mr-2" />
+                        Sign out
+                      </Button>
+                    )}
+                  </div>
+                </div>
               </nav>
             </SheetContent>
           </Sheet>

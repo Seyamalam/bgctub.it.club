@@ -1,12 +1,12 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
-import { Toaster } from '@/components/ui/sonner';
+import { Toaster } from '@/components/ui/toaster';
 import { LayoutWrapper } from '@/components/layout-wrapper';
-import { SpeedInsights } from "@vercel/speed-insights/next" 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Providers } from '@/components/providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -52,12 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-background relative overflow-x-hidden`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Providers>
           <LayoutWrapper>
             <div className="flex min-h-screen flex-col">
               <Navbar />
@@ -68,7 +63,7 @@ export default function RootLayout({
             </div>
           </LayoutWrapper>
           <Toaster />
-        </ThemeProvider>
+        </Providers>
         <SpeedInsights />
       </body>
     </html>
