@@ -5,6 +5,7 @@ import { compare } from "bcryptjs"
 import { type User } from "next-auth"
 
 const handler = NextAuth({
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: "Credentials",
