@@ -1,6 +1,10 @@
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
 import Link from "next/link"
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
+import { Toaster } from '@/components/ui/toaster';
+import { LayoutWrapper } from '@/components/layout-wrapper';
 
 const newsItems = [
   {
@@ -17,60 +21,69 @@ const newsItems = [
     publishedAt: "20-Dec-2024",
     source: "The Daily Messenger",
     sourceUrl: "https://www.dailymessenger.net/education/news/29831",
-    description: "The BGCTUB IT Club was officially launched on Thursday at a ceremony in the university's IQAC conference hall aiming to boost education and technological innovation. Professor Dr. A.F.M Aowrangazab, vice-chancellor of BGC Trust University Bangladesh, addressed the inaugural programme as the chief guest. Registrar-in-charge Dr. S.M. Shoaib, and deputy registrar Salahuddin Shahriar joined the ceremony as special guests while Mohammad Salah Uddin Chowdhury, chief adviser of the BGCTUB IT Club and  chairman of the CSE department, presided over the event. Chief guest Professor Dr. A.F.M Aowrangazab said “Students must develop technological skills to contribute to the nation's progress. The BGCTUB IT Club will play a important role in achieving this.” The programme was hosted by Shahriar Faisal and Syeda Tasfia Tabassum and attended by advisers, and students from different departments. The BGCTUB IT Club also introduced its leadership team in the inaugural: Md Rahat Ibne Sattar made president while Meheraj Moazzem as vice-president, Asrar Kawsain Tahmid as general secretary, A.K.M Fahim Chowdhury as treasurer and Sayem Mannan as organizing secretary. The BGCTUB IT Club aimed to equip students with advanced IT skills, promote research, and encourage innovation. It is expected to play a key role in preparing students to excel in the global technology industry.",
+    description: "The BGCTUB IT Club was officially launched on Thursday at a ceremony in the university's IQAC conference hall aiming to boost education and technological innovation. Professor Dr. A.F.M Aowrangazab, vice-chancellor of BGC Trust University Bangladesh, addressed the inaugural programme as the chief guest. Registrar-in-charge Dr. S.M. Shoaib, and deputy registrar Salahuddin Shahriar joined the ceremony as special guests while Mohammad Salah Uddin Chowdhury, chief adviser of the BGCTUB IT Club and  chairman of the CSE department, presided over the event. Chief guest Professor Dr. A.F.M Aowrangazab said 'Students must develop technological skills to contribute to the nation's progress. The BGCTUB IT Club will play a important role in achieving this.' The programme was hosted by Shahriar Faisal and Syeda Tasfia Tabassum and attended by advisers, and students from different departments. The BGCTUB IT Club also introduced its leadership team in the inaugural: Md Rahat Ibne Sattar made president while Meheraj Moazzem as vice-president, Asrar Kawsain Tahmid as general secretary, A.K.M Fahim Chowdhury as treasurer and Sayem Mannan as organizing secretary. The BGCTUB IT Club aimed to equip students with advanced IT skills, promote research, and encourage innovation. It is expected to play a key role in preparing students to excel in the global technology industry.",
   },
   
 ]
 
 export default function NewsPage() {
   return (
-    <div className="container py-12 min-h-screen">
-      <div className="mx-auto max-w-4xl text-center mb-12">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
-          News Coverage
-        </h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Media coverage and achievements of BGCTUB IT Club
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
-        {newsItems.map((item, index) => (
-          <Card key={index} className="overflow-hidden border-0 bg-white dark:bg-black/40 shadow-none backdrop-blur-sm">
-            <div className="relative aspect-[16/9] w-full">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover"
-                priority={index < 2}
-              />
-            </div>
-            
-            <div className="p-6 space-y-4">
-              <div className="flex justify-between items-center text-sm text-muted-foreground">
-                <span>Published on: {new Date(item.publishedAt).toLocaleDateString()}</span>
-                <Link 
-                  href={item.sourceUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                >
-                  Source: {item.source}
-                </Link>
-              </div>
-              
-              <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
-                {item.title}
-              </h2>
-              
-              <p className="text-muted-foreground leading-relaxed">
-                {item.description}
+    <LayoutWrapper>
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        <main className="flex-1 px-2 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+          <div className="container py-12 min-h-screen">
+            <div className="mx-auto max-w-4xl text-center mb-12">
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
+                News Coverage
+              </h1>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Media coverage and achievements of BGCTUB IT Club
               </p>
             </div>
-          </Card>
-        ))}
+
+            <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+              {newsItems.map((item, index) => (
+                <Card key={index} className="overflow-hidden border-0 bg-white dark:bg-black/40 shadow-none backdrop-blur-sm">
+                  <div className="relative aspect-[16/9] w-full">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                      priority={index < 2}
+                    />
+                  </div>
+                  
+                  <div className="p-6 space-y-4">
+                    <div className="flex justify-between items-center text-sm text-muted-foreground">
+                      <span>Published on: {new Date(item.publishedAt).toLocaleDateString()}</span>
+                      <Link 
+                        href={item.sourceUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-primary transition-colors"
+                      >
+                        Source: {item.source}
+                      </Link>
+                    </div>
+                    
+                    <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
+                      {item.title}
+                    </h2>
+                    
+                    <p className="text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </main>
+        <Footer />
       </div>
-    </div>
+      <Toaster />
+    </LayoutWrapper>
   )
 } 

@@ -5,6 +5,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Card } from "@/components/ui/card"
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
+import { Toaster } from '@/components/ui/toaster';
+import { LayoutWrapper } from '@/components/layout-wrapper';
 
 const faqItems = [
   {
@@ -39,38 +43,47 @@ const faqItems = [
 
 export default function FaqPage() {
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <div className="relative z-10">
-        <div className="container py-12">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mb-4 text-4xl font-bold animate-fade-down">
-              Frequently Asked Questions
-            </h1>
-            <p className="mb-8 text-lg text-muted-foreground animate-fade-up">
-              Find answers to common questions about BGCTUB IT Club
-            </p>
-          </div>
+    <LayoutWrapper>
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        <main className="flex-1 px-2 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+          <div className="relative min-h-screen overflow-hidden">
+            <div className="relative z-10">
+              <div className="container py-12">
+                <div className="mx-auto max-w-4xl text-center">
+                  <h1 className="mb-4 text-4xl font-bold animate-fade-down">
+                    Frequently Asked Questions
+                  </h1>
+                  <p className="mb-8 text-lg text-muted-foreground animate-fade-up">
+                    Find answers to common questions about BGCTUB IT Club
+                  </p>
+                </div>
 
-          <Card className="mx-auto max-w-3xl animate-fade-up glass-effect">
-            <Accordion type="single" collapsible className="p-2 sm:p-6">
-              {faqItems.map((item, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="hover-card-effect px-2 sm:px-4 rounded-lg my-2"
-                >
-                  <AccordionTrigger className="text-left hover:text-primary text-sm sm:text-base">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground whitespace-pre-line text-sm">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </Card>
-        </div>
+                <Card className="mx-auto max-w-3xl animate-fade-up glass-effect">
+                  <Accordion type="single" collapsible className="p-2 sm:p-6">
+                    {faqItems.map((item, index) => (
+                      <AccordionItem 
+                        key={index} 
+                        value={`item-${index}`}
+                        className="hover-card-effect px-2 sm:px-4 rounded-lg my-2"
+                      >
+                        <AccordionTrigger className="text-left hover:text-primary text-sm sm:text-base">
+                          {item.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground whitespace-pre-line text-sm">
+                          {item.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </main>
+        <Footer />
       </div>
-    </div>
+      <Toaster />
+    </LayoutWrapper>
   )
 } 

@@ -68,7 +68,7 @@ export default function Navbar() {
           <NavigationMenuList>
             {menuItems.map((item) => (
               <NavigationMenuItem key={item.href}>
-                <Link href={item.href} legacyBehavior passHref>
+                <Link href={item.href}>
                   <NavigationMenuLink className={cn(
                     navigationMenuTriggerStyle(),
                     "relative"

@@ -1,10 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
-import { Toaster } from '@/components/ui/toaster';
-import { LayoutWrapper } from '@/components/layout-wrapper';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
 import { Providers } from '@/components/providers';
@@ -54,16 +50,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-background relative overflow-x-hidden`}>
         <Providers>
-          <LayoutWrapper>
-            <div className="flex min-h-screen flex-col">
-              <Navbar />
-              <main className="flex-1 px-2 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </LayoutWrapper>
-          <Toaster />
+          {children}
         </Providers>
         <SpeedInsights />
         <Analytics />
