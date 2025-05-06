@@ -39,7 +39,8 @@ const handler = NextAuth({
             id: user.id,
             email: user.email,
             name: user.name || undefined,
-          }
+            role: (user as any).role,
+          } as any;
         } catch (error) {
           console.error("Error in authorize:", error)
           return null
@@ -54,11 +55,18 @@ const handler = NextAuth({
     strategy: "jwt",
   },
   callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = (user as any).role;
+      }
+      return token;
+    },
     async session({ session, token }) {
       if (token && session.user) {
-        session.user.id = token.sub as string
+        session.user.id = token.sub as string;
+        (session.user as any).role = token.role as string;
       }
-      return session
+      return session;
     },
   },
 })
