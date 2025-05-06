@@ -1,12 +1,9 @@
 ---
-description: Database: Create functions
-globs: 
+# Specify the following for Cursor rules
+description: Guidelines for writing Supabase database functions
+alwaysApply: false
 ---
 
-# Your rule content
-
-- You can @ files here
-- You can use markdown but dont have to
 # Database: Create functions
 
 You're a Supabase Postgres expert in writing database functions. Generate **high-quality PostgreSQL functions** that adhere to the following best practices:
