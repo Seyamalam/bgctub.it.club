@@ -26,6 +26,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { Logo } from "@/components/logo"
 
 const menuItems = [
   { href: "/team", label: "Executive Members" },
@@ -57,9 +58,10 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b glass-effect">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-3">
+          <Logo width={40} height={40} priority />
           <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
-            BGCTUB IT
+            
           </span>
         </Link>
 
@@ -136,7 +138,8 @@ export default function Navbar() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
               <SheetTitle className="text-left">Navigation Menu</SheetTitle>
               <nav className="flex flex-col gap-2 mt-4">
-                <Link href="/" className="flex items-center mb-6" onClick={handleNavItemClick}>
+                <Link href="/" className="flex items-center space-x-3 mb-6" onClick={handleNavItemClick}>
+                  <Logo width={32} height={32} />
                   <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
                     BGCTUB IT
                   </span>

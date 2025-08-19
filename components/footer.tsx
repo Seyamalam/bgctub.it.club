@@ -11,6 +11,7 @@ import {
   MessageSquare
 } from "lucide-react"
 import { NewsletterForm } from "@/components/newsletter-form"
+import { Logo } from "@/components/logo"
 
 const socialLinks = [
   {
@@ -61,9 +62,12 @@ export default function Footer() {
       <div className="container py-4 sm:py-8">
         <div className="grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
-              About Us
-            </h3>
+            <div className="flex items-center space-x-3 mb-3">
+              <Logo width={32} height={32} />
+              <h3 className="text-lg font-semibold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">
+                BGCTUB IT Club
+              </h3>
+            </div>
             <p className="text-sm text-muted-foreground">
               BGCTUB IT Club aims to create an innovative platform at BGC Trust University Bangladesh.
             </p>

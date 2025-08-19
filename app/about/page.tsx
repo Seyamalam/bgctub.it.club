@@ -6,6 +6,7 @@ import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { LayoutWrapper } from '@/components/layout-wrapper';
+import { Logo } from '@/components/logo';
 
 export default function AboutPage() {
   return (
@@ -15,7 +16,10 @@ export default function AboutPage() {
         <main className="flex-1 px-2 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto w-full">
           <div className="container py-12">
             <div className="mx-auto max-w-4xl text-center">
-              <h1 className="mb-4 text-4xl font-bold">About BGCTUB IT Club</h1>
+              <div className="flex items-center justify-center space-x-4 mb-6">
+                <Logo width={60} height={60} />
+                <h1 className="text-4xl font-bold">About BGCTUB IT Club</h1>
+              </div>
               <p className="mb-8 text-lg text-muted-foreground">
                 Creating an innovative platform at BGC Trust University Bangladesh&apos;s IT Club
               </p>

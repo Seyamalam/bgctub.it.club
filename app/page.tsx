@@ -10,6 +10,7 @@ import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import { Toaster } from '@/components/ui/toaster'
 import { LayoutWrapper } from '@/components/layout-wrapper'
+import { Logo } from '@/components/logo'
 
 
 const features = [
@@ -123,12 +124,25 @@ export default function HomePage() {
               <div className="w-full h-full grid lg:grid-cols-2 items-center">
                 {/* Left content */}
                 <div className="flex flex-col justify-center px-6 py-12 lg:px-16 space-y-6 text-center lg:text-left">
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold animate-fade-up">
-                    Welcome to{' '}
-                    <span className="bg-gradient-to-r from-primary via-primary/50 to-primary bg-300% bg-clip-text text-transparent animate-gradient">
-                      BGCTUB IT Club
-                    </span>
-                  </h1>
+                  <div className="flex items-center justify-center lg:justify-start space-x-6 mb-4">
+                    <Logo width={120} height={120} priority className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32" />
+                    <div className="hidden lg:block">
+                      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold animate-fade-up">
+                        Welcome to{' '}
+                        <span className="bg-gradient-to-r from-primary via-primary/50 to-primary bg-300% bg-clip-text text-transparent animate-gradient">
+                          BGCTUB IT Club
+                        </span>
+                      </h1>
+                    </div>
+                  </div>
+                  <div className="lg:hidden">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold animate-fade-up">
+                      Welcome to{' '}
+                      <span className="bg-gradient-to-r from-primary via-primary/50 to-primary bg-300% bg-clip-text text-transparent animate-gradient">
+                        BGCTUB IT Club
+                      </span>
+                    </h1>
+                  </div>
                   <p className="text-lg sm:text-xl text-muted-foreground animate-fade-up [animation-delay:200ms] max-w-xl mx-auto lg:mx-0">
                     Empowering students through technology, innovation, and collaboration. Join us in shaping the future of IT.
                   </p>
