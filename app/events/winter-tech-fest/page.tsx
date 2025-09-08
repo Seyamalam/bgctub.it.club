@@ -48,32 +48,29 @@ interface Competition {
 }
 
 const competitions: Record<string, Competition> = {
-  ctf: {
-    title: "Capture The Flag",
-    category: "Cyber Security",
-    description: "Test your cybersecurity skills in this intensive CTF competition. Solve challenges across various domains including web exploitation, cryptography, reverse engineering, and more.",
-    registrationStatus: "Opening Soon",
+  programming: {
+    title: "CodeMaster Showdown",
+    category: "Programming Contest",
+    description: "Competitive programming competition featuring algorithmic challenges and coding problems.",
+    registrationStatus: "Registration Open",
     maxParticipants: 100,
     currentParticipants: 0,
     timeline: [
-      { date: "January 15, 2024", event: "Registration Opens" },
-      { date: "January 25, 2024", event: "Workshop: Introduction to CTF" },
-      { date: "January 26, 2024", event: "Mock CTF Contest" },
-      { date: "February 1-2, 2024", event: "Main CTF Competition" },
-      { date: "February 2, 2024", event: "Winners Announcement" }
+      { date: "September 3, 2025", event: "CodeMaster Showdown (3 Hours)" },
+      { date: "September 3, 2025", event: "Results Announcement" }
     ],
     rules: [
-      "Teams of 2-4 members",
-      "24-hour competition period",
-      "Multiple categories of challenges",
-      "Points based on challenge difficulty",
-      "First blood bonus points",
-      "Live scoreboard updates"
+      "Individual participation",
+      "3-hour competition duration",
+      "Multiple programming problems",
+      "Languages: C, C++, Java, Python",
+      "Online judge system",
+      "Real-time scoring"
     ],
     prizes: {
-      first: "Trophy + Certificates",
-      second: "Trophy + Certificates",
-      third: "Trophy + Certificates"
+      first: "1st Place Trophy + Certificate",
+      second: "2nd Place Trophy + Certificate",
+      third: "3rd Place Trophy + Certificate"
     },
     judges: [
       {
@@ -86,62 +83,98 @@ const competitions: Record<string, Competition> = {
         role: "Lecturer, CSE Department",
         image: "/images/advisor/Mr Misbah Uddin Emran_20241214_112035_0006.jpg"
       }
+    ]
+  },
+  esports: {
+    title: "eFootball Championship",
+    category: "E-Sports",
+    description: "Football gaming tournament showcasing skills in virtual football competition.",
+    registrationStatus: "Registration Open",
+    maxParticipants: 32,
+    currentParticipants: 0,
+    timeline: [
+      { date: "September 3, 2025", event: "eFootball Championship (4 Hours)" },
+      { date: "September 3, 2025", event: "Tournament Results" }
     ],
-    workshops: [
-      {
-        title: "Introduction to CTF",
-        description: "Learn the basics of CTF competitions, types of challenges, and solving strategies.",
-        date: "January 25, 2024",
-        duration: "2 hours",
-        instructor: "Mr. Misbah Uddin Emran"
-      },
-      {
-        title: "Web Exploitation Basics",
-        description: "Understanding common web vulnerabilities and exploitation techniques.",
-        date: "January 25, 2024",
-        duration: "2 hours",
-        instructor: "Mr. Salah Uddin Chowdhury"
-      }
+    rules: [
+      "Teams of 1 player each",
+      "4-hour tournament duration",
+      "Standard eFootball rules",
+      "Best of 3 matches in finals",
+      "Console: PlayStation",
+      "Fair play policy enforced"
     ],
-    resources: [
+    prizes: {
+      first: "1st Place Trophy + Certificate",
+      second: "2nd Place Trophy + Certificate",
+      third: "3rd Place Trophy + Certificate"
+    },
+    judges: [
       {
-        title: "CTF Preparation Guide",
-        type: "PDF",
-        link: "#"
-      },
-      {
-        title: "Practice Challenges",
-        type: "Website",
-        link: "#"
+        name: "BGCTUB Gaming Club",
+        role: "Tournament Organizers"
       }
     ]
   },
-  programming: {
-    title: "Code Warriors",
-    category: "Competitive Programming",
-    description: "Show your algorithmic prowess in this competitive programming contest. Solve complex problems with efficient solutions under time pressure.",
-    registrationStatus: "Opening Soon",
-    maxParticipants: 150,
+  design: {
+    title: "BGC Visionary Design Contest",
+    category: "Graphics & Videography",
+    description: "Creative graphics and videography design competition for visual content creation.",
+    registrationStatus: "Registration Open",
+    maxParticipants: 50,
     currentParticipants: 0,
     timeline: [
-      { date: "January 15, 2024", event: "Registration Opens" },
-      { date: "January 28, 2024", event: "Workshop: Problem Solving Strategies" },
-      { date: "January 29, 2024", event: "Mock Contest" },
-      { date: "February 3, 2024", event: "Main Competition" },
-      { date: "February 3, 2024", event: "Winners Announcement" }
+      { date: "September 3, 2025", event: "Submission Deadline (36 Hours)" },
+      { date: "September 4, 2025", event: "Judging & Results" }
     ],
     rules: [
       "Individual participation",
-      "5-hour contest duration",
-      "Problems in varying difficulty",
-      "Languages: C, C++, Java, Python",
-      "Online judge system",
-      "Real-time submissions"
+      "36-hour creation time",
+      "Original artwork required",
+      "Theme: BGC Trust University",
+      "Multiple categories available",
+      "Digital submission only"
     ],
     prizes: {
-      first: "25,000 BDT + Certificates",
-      second: "15,000 BDT + Certificates",
-      third: "10,000 BDT + Certificates"
+      first: "1st Place Trophy + Certificate",
+      second: "2nd Place Trophy + Certificate",
+      third: "3rd Place Trophy + Certificate"
+    },
+    judges: [
+      {
+        name: "Ms. Kazi Sanjida Tahrim",
+        role: "Lecturer, Pharmacy Department"
+      },
+      {
+        name: "Mr. Sarwar Kamal",
+        role: "Assistant Professor, Journalism"
+      }
+    ]
+  },
+  innovation: {
+    title: "The Innovation Incubator",
+    category: "Idea Contest",
+    description: "Innovation contest for tech ideas and startup concepts with multiple rounds.",
+    registrationStatus: "Registration Open",
+    maxParticipants: 50,
+    currentParticipants: 0,
+    timeline: [
+      { date: "September 3, 2025", event: "1st Round (24 Hours Online)" },
+      { date: "September 7, 2025", event: "Final Round (Top 5) - 1 Hour Onsite" },
+      { date: "September 7, 2025", event: "Winners Announcement" }
+    ],
+    rules: [
+      "Teams of 2-3 members",
+      "24-hour first round submission",
+      "Top 5 advance to finals",
+      "10-minute final presentations",
+      "Original ideas only required",
+      "Business viability scoring"
+    ],
+    prizes: {
+      first: "1st Place Trophy + Certificate",
+      second: "2nd Place Trophy + Certificate",
+      third: "3rd Place Trophy + Certificate"
     },
     judges: [
       {
@@ -154,29 +187,67 @@ const competitions: Record<string, Competition> = {
       }
     ]
   },
-  hackathon: {
-    title: "WebCraft Hackathon",
-    category: "Web Development",
-    description: "Build innovative web solutions in this 36-hour hackathon. Focus on both functionality and UI/UX to create impactful projects.",
+  ctf: {
+    title: "The Battle of the Hackers",
+    category: "CTF Competition",
+    description: "Capture The Flag cybersecurity competition testing security and hacking skills.",
+    registrationStatus: "Registration Open",
+    maxParticipants: 50,
+    currentParticipants: 0,
     timeline: [
-      { date: "January 15, 2024", event: "Registration Opens" },
-      { date: "January 30, 2024", event: "Workshop: Modern Web Development" },
-      { date: "January 31, 2024", event: "UI/UX Workshop" },
-      { date: "February 4-5, 2024", event: "Hackathon" },
-      { date: "February 5, 2024", event: "Project Presentations & Winners" }
+      { date: "September 4, 2025", event: "CTF Competition (3 Hours Onsite)" },
+      { date: "September 4, 2025", event: "Results & Awards" }
+    ],
+    rules: [
+      "Teams of 2-4 members",
+      "3-hour competition duration",
+      "Multiple challenge categories",
+      "Points based on difficulty",
+      "Live scoreboard available",
+      "Team collaboration allowed"
+    ],
+    prizes: {
+      first: "1st Place Trophy + Certificate",
+      second: "2nd Place Trophy + Certificate",
+      third: "3rd Place Trophy + Certificate"
+    },
+    judges: [
+      {
+        name: "Mr. Salah Uddin Chowdhury",
+        role: "Head of CSE Department, BGCTUB",
+        image: "/images/advisor/Mr md Salah Uddin Chowdury_20241214_112034_0000.jpg"
+      },
+      {
+        name: "Mr. Misbah Uddin Emran",
+        role: "Lecturer, CSE Department",
+        image: "/images/advisor/Mr Misbah Uddin Emran_20241214_112035_0006.jpg"
+      }
+    ]
+  },
+  webdev: {
+    title: "Web Development Hackathon",
+    category: "Web Development",
+    description: "Web development hackathon with multiple rounds and final presentations.",
+    registrationStatus: "Registration Open",
+    maxParticipants: 30,
+    currentParticipants: 0,
+    timeline: [
+      { date: "September 4, 2025", event: "1st Round (10 Hours Online)" },
+      { date: "September 8, 2025", event: "Final Round (Top 5) - 1h 30m Onsite" },
+      { date: "September 8, 2025", event: "Winners Announcement" }
     ],
     rules: [
       "Teams of 3-5 members",
-      "36-hour build time",
-      "Original project ideas only",
-      "Tech stack freedom",
-      "Regular milestone checks",
-      "Final presentation required"
+      "10-hour first round development",
+      "Top 5 teams advance to finals",
+      "1.5-hour final presentations",
+      "Original projects only",
+      "Full-stack solutions preferred"
     ],
     prizes: {
-      first: "50,000 BDT + Certificates",
-      second: "30,000 BDT + Certificates",
-      third: "20,000 BDT + Certificates"
+      first: "1st Place Trophy + Certificate",
+      second: "2nd Place Trophy + Certificate",
+      third: "3rd Place Trophy + Certificate"
     },
     judges: [
       {
@@ -188,134 +259,65 @@ const competitions: Record<string, Competition> = {
         role: "Lecturer, Law Department"
       }
     ]
-  },
-  ideacontest: {
-    title: "Innovation Summit",
-    category: "Tech Innovations",
-    description: "Present your groundbreaking tech ideas and solutions. Focus on innovation, feasibility, and potential impact.",
-    timeline: [
-      { date: "January 15, 2024", event: "Registration Opens" },
-      { date: "February 1, 2024", event: "Workshop: Idea Presentation" },
-      { date: "February 2, 2024", event: "Pitch Workshop" },
-      { date: "February 6, 2024", event: "Idea Presentations" },
-      { date: "February 6, 2024", event: "Winners Announcement" }
-    ],
-    rules: [
-      "Individual or team (max 3)",
-      "10-minute presentation",
-      "5-minute Q&A session",
-      "Original ideas only",
-      "Prototype bonus points",
-      "Business model required"
-    ],
-    prizes: {
-      first: "40,000 BDT + Certificates",
-      second: "25,000 BDT + Certificates",
-      third: "15,000 BDT + Certificates"
-    },
-    judges: [
-      {
-        name: "Mr. Sarwar Kamal",
-        role: "Assistant Professor, Journalism"
-      },
-      {
-        name: "Ms. Kazi Sanjida Tahrim",
-        role: "Lecturer, Pharmacy Department"
-      }
-    ]
-  },
-  esports: {
-    title: "CS:GO Tournament",
-    category: "E-Sports",
-    description: "Compete in Counter-Strike: Global Offensive tournament. Show your tactical skills and team coordination.",
-    timeline: [
-      { date: "January 15, 2024", event: "Registration Opens" },
-      { date: "February 3, 2024", event: "Practice Sessions" },
-      { date: "February 7, 2024", event: "Qualifiers" },
-      { date: "February 8, 2024", event: "Semi-Finals & Finals" },
-      { date: "February 8, 2024", event: "Winners Announcement" }
-    ],
-    rules: [
-      "5-player teams",
-      "Standard competitive rules",
-      "Best of 3 matches",
-      "Fair play policy",
-      "Own peripherals allowed",
-      "Technical pause system"
-    ],
-    prizes: {
-      first: "25,000 BDT + Certificates",
-      second: "15,000 BDT + Certificates",
-      third: "10,000 BDT + Certificates"
-    },
-    judges: [
-      {
-        name: "BGCTUB E-Sports Club",
-        role: "Tournament Organizers"
-      }
-    ]
   }
 }
 
 const highlights = [
   {
-    title: "Expert-Led Workshops",
-    description: "Learn from industry professionals and academics through specialized workshops.",
-    icon: BookOpen
+    title: "Multi-Day Event",
+    description: "6-day festival featuring competitions across all technology domains.",
+    icon: Calendar
   },
   {
-    title: "Valuable Prizes",
-    description: "Win exciting prizes worth over 2 Lac BDT across all competitions.",
-    icon: Gift
+    title: "Diverse Competitions",
+    description: "Programming, Gaming, Design, Innovation, Security, and Web Development challenges.",
+    icon: Trophy
   },
   {
-    title: "Networking",
-    description: "Connect with fellow tech enthusiasts and industry professionals.",
-    icon: Users
+    title: "Hybrid Format",
+    description: "Combination of onsite and online events for maximum participation.",
+    icon: Rocket
   },
   {
-    title: "Skill Development",
-    description: "Enhance your technical and soft skills through practical challenges.",
-    icon: Target
+    title: "Expert Judging",
+    description: "Professional faculty and industry experts evaluating all competitions.",
+    icon: Sparkles
   }
 ]
 
 const roadmap = [
   {
-    phase: "Phase 1: Preparation",
+    phase: "Day 1: September 3, 2025",
     events: [
-      "Registration Opens",
-      "Workshop Series Begins",
-      "Resource Distribution"
+      "CodeMaster Showdown (Programming)",
+      "eFootball Championship (Gaming)",
+      "BGC Visionary Design Contest (Design)",
+      "Innovation Incubator Round 1"
     ]
   },
   {
-    phase: "Phase 2: Practice",
+    phase: "Day 2: September 4, 2025",
     events: [
-      "Mock Contests",
-      "Team Formation",
-      "Mentorship Sessions"
+      "Battle of the Hackers (CTF)",
+      "Web Development Hackathon Round 1"
     ]
   },
   {
-    phase: "Phase 3: Competition",
+    phase: "Day 3: September 7, 2025",
     events: [
-      "Main Events Begin",
-      "Live Competitions",
-      "Daily Updates"
+      "Innovation Incubator Final Round (Top 5)"
     ]
   },
   {
-    phase: "Phase 4: Finale",
+    phase: "Day 4: September 8, 2025",
     events: [
-      "Project Presentations",
-      "Award Ceremony",
-      "Networking Event"
+      "Web Development Hackathon Final Round (Top 5)",
+      "Closing & Prize Giving Ceremony"
     ]
   }
 ]
 
-export default function WinterTechFestPage() {
+export default function ITFestPage() {
   return (
     <div className="container py-8 md:py-12 min-h-screen">
       {/* Hero Section - Enhanced with better mobile layout */}
@@ -331,15 +333,15 @@ export default function WinterTechFestPage() {
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-2xl md:text-5xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text mb-2 md:mb-4">
-              Winter Tech Fest 2024
+              IT Fest 2025
             </h1>
             <p className="text-sm md:text-lg text-muted-foreground mb-4">
-              A week-long celebration of technology, innovation, and competition
+              Full event schedule for all competitions and activities at BGCTUB Campus
             </p>
             <div className="flex flex-wrap gap-3 md:gap-4 text-xs md:text-base text-muted-foreground">
               <div className="flex items-center gap-2 bg-background/80 backdrop-blur-sm rounded-full px-3 py-1">
                 <Calendar className="h-3 w-3 md:h-4 md:w-4 text-primary" />
-                <span>February 1-8, 2024</span>
+                <span>September 3-8, 2025</span>
               </div>
               <div className="flex items-center gap-2 bg-background/80 backdrop-blur-sm rounded-full px-3 py-1">
                 <MapPin className="h-3 w-3 md:h-4 md:w-4 text-primary" />
@@ -347,7 +349,7 @@ export default function WinterTechFestPage() {
               </div>
               <div className="flex items-center gap-2 bg-background/80 backdrop-blur-sm rounded-full px-3 py-1">
                 <Users className="h-3 w-3 md:h-4 md:w-4 text-primary" />
-                <span>500+ Participants Expected</span>
+                <span>Open to All Students</span>
               </div>
             </div>
           </div>

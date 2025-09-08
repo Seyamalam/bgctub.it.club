@@ -13,32 +13,74 @@ const activities = {
   cybersecurity: {
     Icon: Shield,
     title: "Cyber Security",
-    items: ["Learning Path", "CTF", "Workshops", "Resources"]
+    items: [
+      "Ethical Hacking Fundamentals",
+      "Capture The Flag (CTF) Challenges",
+      "Network Security Workshops",
+      "Penetration Testing Sessions",
+      "Security Awareness Training",
+      "Bug Bounty Programs"
+    ]
   },
   programming: {
     Icon: Code,
     title: "Programming",
-    items: ["Contest", "Problem Solving", "Workshops"]
+    items: [
+      "Competitive Programming Contests",
+      "Algorithm & Data Structures Sessions",
+      "Code Review Workshops",
+      "Pair Programming Events",
+      "Debugging Challenges",
+      "Open Source Contribution Workshops"
+    ]
   },
   webdev: {
     Icon: Globe,
     title: "Web Development",
-    items: ["Hackathons", "Workshops", "Resources"]
+    items: [
+      "Full-Stack Development Workshops",
+      "Frontend Framework Sessions (React, Vue)",
+      "Backend API Development",
+      "Web Hackathons & Code Jams",
+      "UI/UX Design Integration",
+      "Deployment & DevOps Practices"
+    ]
   },
   innovation: {
     Icon: Lightbulb,
-    title: "Teach Innovations",
-    items: ["Idea Contest", "Startup basics", "Pitch Presentations"]
+    title: "Tech Innovations",
+    items: [
+      "Innovation Idea Contests",
+      "Startup Fundamentals Workshop",
+      "Pitch Presentation Sessions",
+      "Product Development Sprints",
+      "Technology Trend Analysis",
+      "Innovation Hackathons"
+    ]
   },
   design: {
     Icon: PenTool,
     title: "Graphics Design",
-    items: ["Logo Contest", "Poster Presentation", "Resources"]
+    items: [
+      "Logo Design Contests",
+      "Poster & Banner Creation Sessions",
+      "UI/UX Design Workshops",
+      "Adobe Creative Suite Training",
+      "Motion Graphics Introduction",
+      "Design Portfolio Building"
+    ]
   },
   esports: {
     Icon: Gamepad,
     title: "E-Sports",
-    items: ["Community", "Competitive Contest"]
+    items: [
+      "Gaming Community Building",
+      "Esports Tournament Organization",
+      "Game Development Workshops",
+      "Streaming & Content Creation",
+      "Competitive Gaming Sessions",
+      "Esports Strategy Training"
+    ]
   }
 } as const
 

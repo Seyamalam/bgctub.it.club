@@ -29,8 +29,8 @@ import {
 import { Logo } from "@/components/logo"
 
 const menuItems = [
-  { href: "/team", label: "Executive Members" },
   { href: "/advisory-board", label: "Advisory Board" },
+  { href: "/team", label: "Executive Members" },
   { href: "/activities", label: "Activities" },
   { href: "/contact", label: "Contact" },
   { href: "/events", label: "Events" },
@@ -39,7 +39,6 @@ const menuItems = [
   { href: "/hall-of-fame", label: "Hall of Fame" },
   { href: "/news", label: "News" },
   { href: "/partners", label: "Partners" },
-  { href: "/members", label: "Members" },
 ]
 
 export default function Navbar() {

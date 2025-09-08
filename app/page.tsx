@@ -11,6 +11,7 @@ import Footer from '@/components/footer'
 import { Toaster } from '@/components/ui/toaster'
 import { LayoutWrapper } from '@/components/layout-wrapper'
 import { Logo } from '@/components/logo'
+import HackTheFuture from '@/components/hack-the-future'
 
 
 const features = [
@@ -135,6 +136,7 @@ export default function HomePage() {
                       </h1>
                     </div>
                   </div>
+                  <HackTheFuture />
                   <div className="lg:hidden">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold animate-fade-up">
                       Welcome to{' '}
@@ -207,6 +209,51 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+{/* Mission & Vision Section */}
+<section className="py-12 lg:py-20 relative bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+  <div className="container px-4 lg:px-6">
+    <div className="text-center mb-12 lg:mb-16">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 animate-fade-up">
+        <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-300% bg-clip-text text-transparent animate-gradient">
+          Our Purpose
+        </span>
+      </h2>
+      <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-up [animation-delay:200ms]">
+        Founded on December 19, 2023, during our Installation Ceremony, BGCTUB IT Club has grown to over 300 registered members, fostering a vibrant community of tech enthusiasts.
+      </p>
+    </div>
+    
+    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      {/* Mission */}
+      <div className="group p-8 lg:p-12 bg-card/50 hover:bg-card/80 rounded-2xl border border-border/50 transition-all hover:scale-105 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="relative">
+          <div className="rounded-full w-16 h-16 bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <Rocket className="w-8 h-8" />
+          </div>
+          <h3 className="text-2xl font-bold mb-4 text-primary">Our Mission</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            To empower students with cutting-edge technical skills, foster innovation, and build a collaborative community that drives technological advancement and prepares members for the digital future.
+          </p>
+        </div>
+      </div>
+      
+      {/* Vision */}
+      <div className="group p-8 lg:p-12 bg-card/50 hover:bg-card/80 rounded-2xl border border-border/50 transition-all hover:scale-105 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="relative">
+          <div className="rounded-full w-16 h-16 bg-secondary/10 text-secondary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <Lightbulb className="w-8 h-8" />
+          </div>
+          <h3 className="text-2xl font-bold mb-4 text-secondary">Our Vision</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            To be the premier IT hub at BGCTUB, recognized for excellence in technology education, groundbreaking projects, and producing industry-ready professionals who lead the tech revolution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
           {/* CTA Section */}
           <section className="py-12 lg:py-20 relative px-4 lg:px-6">
