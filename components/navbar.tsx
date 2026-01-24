@@ -115,14 +115,17 @@ export default function Navbar() {
                     </NavigationMenuContent>
                   </>
                 ) : (
-                  <Link href={item.href!} legacyBehavior passHref>
-                    <NavigationMenuLink className={cn(
-                      navigationMenuTriggerStyle(),
-                      "relative"
-                    )}>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href={item.href!}
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        "relative"
+                      )}
+                    >
                       {item.label}
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 )}
               </NavigationMenuItem>
             ))}

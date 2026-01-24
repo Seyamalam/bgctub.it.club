@@ -2,9 +2,20 @@
 
 import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 export default function HackTheFuture() {
   const { theme } = useTheme()
+  const [particles, setParticles] = useState<Array<{left: string, top: string, delay: number, duration: number}>>([])
+
+  useEffect(() => {
+    setParticles([...Array(12)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: Math.random() * 2,
+      duration: 3 + Math.random() * 2
+    })))
+  }, [])
 
   return (
     <motion.div
@@ -37,15 +48,15 @@ export default function HackTheFuture() {
           >
             {/* Animated particles background */}
             <div className="absolute inset-0 overflow-hidden">
-              {[...Array(12)].map((_, i) => (
+              {particles.map((p, i) => (
                 <motion.div
                   key={i}
                   className={`absolute w-2 h-2 rounded-full opacity-30 ${
                     theme === 'dark' ? 'bg-green-400' : 'bg-green-600'
                   }`}
                   style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
+                    left: p.left,
+                    top: p.top,
                   }}
                   animate={{
                     y: [0, -20, 0],
@@ -53,10 +64,10 @@ export default function HackTheFuture() {
                     scale: [1, 1.2, 1],
                   }}
                   transition={{
-                    duration: 3 + Math.random() * 2,
+                    duration: p.duration,
                     repeat: Infinity,
                     repeatType: 'reverse',
-                    delay: Math.random() * 2,
+                    delay: p.delay,
                   }}
                 />
               ))}

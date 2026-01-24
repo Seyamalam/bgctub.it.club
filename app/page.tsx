@@ -55,6 +55,7 @@ const features = [
 
 export default function HomePage() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const animationRef = useRef<number>(0)
   const { theme } = useTheme()
   const [showSpline, setShowSpline] = useState(false)
 
