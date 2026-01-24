@@ -59,14 +59,15 @@ export default function EventsPage() {
               {events.map((event) => (
                 <Link key={event.id} href={event.href}>
                   <Card className="group relative overflow-hidden border-0 bg-white dark:bg-black/40 shadow-none backdrop-blur-sm hover:scale-[1.02] transition-all duration-300">
-                    <div className="relative aspect-video">
-                      <Image
-                        src={event.image}
-                        alt={event.title}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
+                      <div className="relative aspect-video">
+                        <Image
+                          src={event.image}
+                          alt={event.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </div>
                     <CardHeader>
                       <h3 className="text-xl font-bold bg-gradient-to-r from-primary to-primary/80 text-transparent bg-clip-text">{event.title}</h3>
                     </CardHeader>

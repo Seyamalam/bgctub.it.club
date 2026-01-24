@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef, useCallback, useState } from 'react'
 import { Shield, Code, Monitor, Lightbulb, Network, Gamepad, ArrowRight, Code2, Users2, Rocket, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -56,29 +56,49 @@ const features = [
 export default function HomePage() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const { theme } = useTheme()
+  const [showSpline, setShowSpline] = useState(false)
 
-  const createMatrix = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
+  useEffect(() => {
+    // Only load Spline on large screens to save bandwidth/performance on mobile
+    const checkScreen = () => {
+      setShowSpline(window.innerWidth >= 1024) // lg breakpoint
+    }
+    
+    // Check initially
+    checkScreen()
+    
+    // Debounced resize handler could be better but this is simple enough for one boolean
+    let timeoutId: NodeJS.Timeout
+    const handleResize = () => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(checkScreen, 150)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      clearTimeout(timeoutId)
+    }
+  }, [])
+
+  const createMatrix = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, drops: number[]) => {
     ctx.fillStyle = theme === 'dark' 
       ? 'rgba(0, 20, 0, 0.05)' 
       : 'rgba(255, 255, 255, 0.2)'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     
     ctx.fillStyle = 'hsl(142, 76%, 36%)' // Always green for matrix characters
-
-    const columns = Math.floor(canvas.width / 20)
-    const drops: number[] = new Array(columns).fill(0)
-
     const characters = '01BGCTUBILK'
     ctx.font = '15px monospace'
 
     for (let i = 0; i < drops.length; i++) {
       const text = characters[Math.floor(Math.random() * characters.length)]
       ctx.fillText(text, i * 20, drops[i] * 20)
-      drops[i]++
-
+      
       if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
         drops[i] = 0
       }
+      drops[i]++
     }
   }, [theme])
 
@@ -89,17 +109,33 @@ export default function HomePage() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    let drops: number[] = []
+
     const setCanvasSize = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
+      const columns = Math.floor(canvas.width / 20)
+      drops = new Array(columns).fill(1)
     }
     setCanvasSize()
 
-    const interval = setInterval(() => createMatrix(ctx, canvas), 50)
+    let lastTime = 0
+    const fps = 30
+    const interval = 1000 / fps
+
+    const animate = (currentTime: number) => {
+      if (currentTime - lastTime > interval) {
+        createMatrix(ctx, canvas, drops)
+        lastTime = currentTime
+      }
+      animationRef.current = requestAnimationFrame(animate)
+    }
+
+    animationRef.current = requestAnimationFrame(animate)
     window.addEventListener('resize', setCanvasSize)
 
     return () => {
-      clearInterval(interval)
+      if (animationRef.current) cancelAnimationFrame(animationRef.current)
       window.removeEventListener('resize', setCanvasSize)
     }
   }, [createMatrix])
@@ -165,10 +201,12 @@ export default function HomePage() {
 
                 {/* Right content - Robot */}
                 <div className="hidden lg:block relative w-[100%] h-[100vh] -right-[-15%] -top-[5vh]">
-                  <SplineScene 
-                    scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                    className="w-full h-full scale-100"
-                  />
+                  {showSpline && (
+                    <SplineScene 
+                      scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                      className="w-full h-full scale-100"
+                    />
+                  )}
                 </div>
               </div>
             </div>

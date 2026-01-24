@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { SearchFilter } from "@/components/search-filter"
@@ -23,29 +23,30 @@ const POSTS_PER_PAGE = 6
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [hasMore, setHasMore] = useState(true)
-  const [page, setPage] = useState(1)
+  const pageRef = useRef(1)
   const [loading, setLoading] = useState(true)
 
   const fetchPosts = useCallback(async () => {
+    const currentPage = pageRef.current
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000))
     
     const newPosts = Array.from({ length: POSTS_PER_PAGE }, (_, i) => ({
-      id: `post-${page}-${i}`,
-      title: `Blog Post ${page * POSTS_PER_PAGE + i}`,
+      id: `post-${currentPage}-${i}`,
+      title: `Blog Post ${currentPage * POSTS_PER_PAGE + i}`,
       excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
       author: "John Doe",
       date: new Date().toISOString(),
       readTime: "5 min read",
       tags: ["Tech", "Programming", "Web Dev"],
-      slug: `blog-post-${page}-${i}`
+      slug: `blog-post-${currentPage}-${i}`
     }))
 
     setPosts(prev => [...prev, ...newPosts])
-    setPage(prev => prev + 1)
-    setHasMore(page < 5)
+    pageRef.current = currentPage + 1
+    setHasMore(currentPage < 5)
     setLoading(false)
-  }, [page])
+  }, [])
 
   useEffect(() => {
     fetchPosts()
