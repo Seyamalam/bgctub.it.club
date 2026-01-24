@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { MoonIcon, SunIcon, Menu, LogOut } from "lucide-react"
+import { MoonIcon, SunIcon, Menu } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import {
@@ -13,25 +13,52 @@ import {
 } from "@/components/ui/sheet"
 import {
   NavigationMenu,
+  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
-import { useSession, signOut } from "next-auth/react"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 import { Logo } from "@/components/logo"
 
-const menuItems = [
-  { href: "/advisory-board", label: "Advisory Board" },
-  { href: "/team", label: "Executive Members" },
-  { href: "/activities", label: "Activities" },
+interface MenuItem {
+  href?: string
+  label: string
+  items?: {
+    href: string
+    label: string
+    description?: string
+  }[]
+}
+
+const menuItems: MenuItem[] = [
+  {
+    label: "Team",
+    items: [
+      { 
+        href: "/advisory-board", 
+        label: "Advisory Board",
+        description: "Our experienced advisors guiding the club"
+      },
+      { 
+        href: "/team", 
+        label: "Executive Members",
+        description: "Meet the current executive committee"
+      },
+      { 
+        href: "/committee-2025", 
+        label: "Committee 2025",
+        description: "Archive of the previous committee"
+      },
+      { 
+        href: "/founding-members", 
+        label: "Founding Members",
+        description: "The visionaries who started it all"
+      },
+    ]
+  },
   { href: "/contact", label: "Contact" },
   { href: "/events", label: "Events" },
   { href: "/faq", label: "FAQ" },
@@ -44,14 +71,9 @@ const menuItems = [
 export default function Navbar() {
   const { setTheme, theme } = useTheme()
   const [isOpen, setIsOpen] = React.useState(false)
-  const { data: session, status } = useSession()
 
   const handleNavItemClick = () => {
     setIsOpen(false)
-  }
-
-  const handleSignOut = async () => {
-    await signOut({ redirect: false })
   }
 
   return (
@@ -68,54 +90,46 @@ export default function Navbar() {
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
             {menuItems.map((item) => (
-              <NavigationMenuItem key={item.href}>
-                <Link href={item.href}>
-                  <NavigationMenuLink className={cn(
-                    navigationMenuTriggerStyle(),
-                    "relative"
-                  )}>
-                    {item.label}
-                  </NavigationMenuLink>
-                </Link>
+              <NavigationMenuItem key={item.label}>
+                {item.items ? (
+                  <>
+                    <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-popover">
+                        {item.items.map((subItem) => (
+                          <li key={subItem.href}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={subItem.href}
+                                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              >
+                                <div className="text-sm font-medium leading-none">{subItem.label}</div>
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                  {subItem.description}
+                                </p>
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </>
+                ) : (
+                  <Link href={item.href!} legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(
+                      navigationMenuTriggerStyle(),
+                      "relative"
+                    )}>
+                      {item.label}
+                    </NavigationMenuLink>
+                  </Link>
+                )}
               </NavigationMenuItem>
             ))}
           </NavigationMenuList>
         </NavigationMenu>
 
         <div className="flex items-center space-x-4">
-          {/* Auth Status Indicator */}
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger>
-                <div className="flex items-center gap-2">
-                  <div className={cn(
-                    "h-2 w-2 rounded-full",
-                    status === "authenticated" ? "bg-green-500" : "bg-zinc-500"
-                  )} />
-                  <span className="text-sm text-muted-foreground hidden sm:inline-block">
-                    {status === "authenticated" ? session.user?.name || session.user?.email : "Not signed in"}
-                  </span>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{status === "authenticated" ? "Signed in" : "Not signed in"}</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-
-          {/* Sign Out Button */}
-          {status === "authenticated" && (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={handleSignOut}
-              className="hover:text-red-500"
-            >
-              <LogOut className="h-5 w-5" />
-              <span className="sr-only">Sign out</span>
-            </Button>
-          )}
-
           {/* Theme Toggle */}
           <Button
             variant="ghost"
@@ -143,41 +157,37 @@ export default function Navbar() {
                     BGCTUB IT
                   </span>
                 </Link>
-                {menuItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="block px-2 py-2 text-base hover:text-primary transition-colors border-b border-border/10"
-                    onClick={handleNavItemClick}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                {/* Mobile Auth Status and Sign Out */}
-                <div className="mt-4 px-2 py-2 border-t border-border/10">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className={cn(
-                        "h-2 w-2 rounded-full",
-                        status === "authenticated" ? "bg-green-500" : "bg-zinc-500"
-                      )} />
-                      <span className="text-sm text-muted-foreground">
-                        {status === "authenticated" ? session.user?.name || session.user?.email : "Not signed in"}
-                      </span>
-                    </div>
-                    {status === "authenticated" && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={handleSignOut}
-                        className="hover:text-red-500"
-                      >
-                        <LogOut className="h-4 w-4 mr-2" />
-                        Sign out
-                      </Button>
-                    )}
-                  </div>
-                </div>
+                {menuItems.map((item) => {
+                  if (item.items) {
+                    return (
+                      <div key={item.label} className="space-y-2">
+                        <div className="px-2 py-2 text-sm font-semibold text-muted-foreground">
+                          {item.label}
+                        </div>
+                        {item.items.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-base hover:text-primary transition-colors border-l-2 border-transparent hover:border-primary ml-2"
+                            onClick={handleNavItemClick}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )
+                  }
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href!}
+                      className="block px-2 py-2 text-base hover:text-primary transition-colors border-b border-border/10"
+                      onClick={handleNavItemClick}
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                })}
               </nav>
             </SheetContent>
           </Sheet>
