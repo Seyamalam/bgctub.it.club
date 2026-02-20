@@ -83,7 +83,7 @@ export default function Design3() {
         .d3-display { font-family: 'Syne', sans-serif; }
         .d3-body { font-family: 'Nunito Sans', sans-serif; }
       `}</style>
-      <div className="flex min-h-screen flex-col d3-body bg-gradient-to-b from-purple-950/30 via-background to-background dark:from-purple-950/50">
+      <div className="flex min-h-screen flex-col d3-body bg-gradient-to-b from-purple-50/60 via-background to-background dark:from-purple-950/50">
         <Navbar />
         <main className="flex-1 overflow-hidden">
           {/* Hero */}
@@ -120,8 +120,8 @@ export default function Design3() {
 
               <motion.div initial={{ opacity: 0, z: -100 }} animate={{ opacity: 1, z: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="mb-6 inline-block px-5 py-2 rounded-full border border-purple-400/20 bg-purple-500/10 backdrop-blur-md">
-                <span className="text-purple-300 text-sm tracking-[0.4em] uppercase d3-display font-semibold">Hack the Future</span>
+                className="mb-6 inline-block px-5 py-2 rounded-full border border-purple-400/20 dark:border-purple-400/20 bg-purple-100/60 dark:bg-purple-500/10 backdrop-blur-md">
+                <span className="text-purple-700 dark:text-purple-300 text-sm tracking-[0.4em] uppercase d3-display font-semibold">Hack the Future</span>
               </motion.div>
 
               <motion.h1 initial={{ opacity: 0, y: 60, rotateX: 20 }} animate={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -165,7 +165,7 @@ export default function Design3() {
                     style={{ boxShadow: '0 25px 50px -12px rgba(147,51,234,0.1), 0 0 0 1px rgba(147,51,234,0.05)' }}>
                     <div className="absolute -top-10 -right-10 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl group-hover:bg-purple-500/15 transition-all" />
                     <div className="relative">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-violet-500/20 text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-violet-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
                         style={{ boxShadow: '0 8px 32px rgba(147,51,234,0.15)' }}>
                         <f.icon className="w-6 h-6" />
                       </div>
@@ -180,7 +180,7 @@ export default function Design3() {
 
           {/* Mission & Vision */}
           <section className="py-16 lg:py-28 relative" style={{ perspective: '1200px' }}>
-            <div className="absolute inset-0 bg-gradient-to-b from-purple-950/10 via-transparent to-purple-950/10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-purple-100/30 dark:from-purple-950/10 via-transparent to-purple-100/30 dark:to-purple-950/10" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
               <motion.div initial={{ opacity: 0, rotateX: 10 }} whileInView={{ opacity: 1, rotateX: 0 }}
                 viewport={{ once: true }} className="text-center mb-16">
@@ -196,10 +196,10 @@ export default function Design3() {
                 <FloatingCard delay={0}>
                   <div className="h-full p-8 lg:p-12 rounded-2xl bg-gradient-to-br from-purple-500/5 to-violet-500/10 border border-purple-500/10 hover:border-purple-500/25 transition-all"
                     style={{ boxShadow: '0 30px 60px -15px rgba(147,51,234,0.1)' }}>
-                    <div className="w-14 h-14 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-6">
                       <Rocket className="w-7 h-7" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-purple-400 d3-display">Our Mission</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-purple-700 dark:text-purple-400 d3-display">Our Mission</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       To empower students with cutting-edge technical skills, foster innovation, and build a collaborative community that drives technological advancement and prepares members for the digital future.
                     </p>
@@ -209,10 +209,10 @@ export default function Design3() {
                 <FloatingCard delay={0.15}>
                   <div className="h-full p-8 lg:p-12 rounded-2xl bg-gradient-to-br from-violet-500/5 to-fuchsia-500/10 border border-violet-500/10 hover:border-violet-500/25 transition-all"
                     style={{ boxShadow: '0 30px 60px -15px rgba(139,92,246,0.1)' }}>
-                    <div className="w-14 h-14 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400 flex items-center justify-center mb-6">
                       <Lightbulb className="w-7 h-7" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-violet-400 d3-display">Our Vision</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-violet-700 dark:text-violet-400 d3-display">Our Vision</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       To be the premier IT hub at BGCTUB, recognized for excellence in technology education, groundbreaking projects, and producing industry-ready professionals who lead the tech revolution.
                     </p>

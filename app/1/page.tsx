@@ -113,8 +113,8 @@ export default function Design1() {
           {/* Hero */}
           <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
             <FloatingOrbs />
-            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-20" style={{ mixBlendMode: 'screen' }} />
-            <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-purple-950/20" />
+            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-20 dark:mix-blend-screen mix-blend-multiply" />
+            <div className="absolute inset-0 bg-gradient-to-b from-purple-100/60 dark:from-purple-900/10 via-transparent to-purple-100/40 dark:to-purple-950/20" />
             
             <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex items-center justify-center mb-8">
@@ -122,8 +122,8 @@ export default function Design1() {
               </motion.div>
               
               <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-block mb-6 px-6 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm">
-                <span className="text-purple-300 text-sm font-medium tracking-widest uppercase design1-heading">Hack the Future</span>
+                className="inline-block mb-6 px-6 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 dark:bg-purple-500/10 backdrop-blur-sm">
+                <span className="text-purple-700 dark:text-purple-300 text-sm font-medium tracking-widest uppercase design1-heading">Hack the Future</span>
               </motion.div>
 
               <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
@@ -162,7 +162,7 @@ export default function Design1() {
                 <motion.div key={f.text} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.1 }} viewport={{ once: true }}
                   className="group p-6 rounded-2xl border border-purple-500/10 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 hover:border-purple-500/30 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/10">
-                  <div className="rounded-xl w-12 h-12 bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="rounded-xl w-12 h-12 bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <f.icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2 design1-heading">{f.text}</h3>
@@ -191,10 +191,10 @@ export default function Design1() {
                   className="group p-8 lg:p-12 rounded-2xl border border-purple-500/10 bg-purple-500/5 backdrop-blur-sm hover:bg-purple-500/10 transition-all relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-all" />
                   <div className="relative">
-                    <div className="rounded-xl w-14 h-14 bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6">
+                    <div className="rounded-xl w-14 h-14 bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-6">
                       <Rocket className="w-7 h-7" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-purple-400 design1-heading">Our Mission</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-purple-700 dark:text-purple-400 design1-heading">Our Mission</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       To empower students with cutting-edge technical skills, foster innovation, and build a collaborative community that drives technological advancement and prepares members for the digital future.
                     </p>
@@ -205,10 +205,10 @@ export default function Design1() {
                   className="group p-8 lg:p-12 rounded-2xl border border-violet-500/10 bg-violet-500/5 backdrop-blur-sm hover:bg-violet-500/10 transition-all relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 rounded-full blur-3xl group-hover:bg-violet-500/20 transition-all" />
                   <div className="relative">
-                    <div className="rounded-xl w-14 h-14 bg-violet-500/10 text-violet-400 flex items-center justify-center mb-6">
+                    <div className="rounded-xl w-14 h-14 bg-violet-500/10 text-violet-600 dark:text-violet-400 flex items-center justify-center mb-6">
                       <Lightbulb className="w-7 h-7" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 text-violet-400 design1-heading">Our Vision</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-violet-700 dark:text-violet-400 design1-heading">Our Vision</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       To be the premier IT hub at BGCTUB, recognized for excellence in technology education, groundbreaking projects, and producing industry-ready professionals who lead the tech revolution.
                     </p>

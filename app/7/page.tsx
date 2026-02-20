@@ -126,7 +126,7 @@ export default function Design7() {
 
             <div className="space-y-6">
               <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-                className="p-8 lg:p-12 bg-purple-300 dark:bg-purple-600 text-black dark:text-white border-4 border-black dark:border-white shadow-[8px_8px_0px_#000] dark:shadow-[8px_8px_0px_#fff] -rotate-[0.5deg]">
+                className="p-8 lg:p-12 bg-purple-200 dark:bg-purple-600 text-purple-950 dark:text-white border-4 border-black dark:border-white shadow-[8px_8px_0px_#000] dark:shadow-[8px_8px_0px_#fff] -rotate-[0.5deg]">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-white/40 border-3 border-black dark:border-white flex items-center justify-center">
                     <Rocket className="w-6 h-6" />
@@ -139,7 +139,7 @@ export default function Design7() {
               </motion.div>
 
               <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-                className="p-8 lg:p-12 bg-fuchsia-300 dark:bg-fuchsia-600 text-black dark:text-white border-4 border-black dark:border-white shadow-[8px_8px_0px_#000] dark:shadow-[8px_8px_0px_#fff] rotate-[0.5deg]">
+                className="p-8 lg:p-12 bg-fuchsia-200 dark:bg-fuchsia-600 text-fuchsia-950 dark:text-white border-4 border-black dark:border-white shadow-[8px_8px_0px_#000] dark:shadow-[8px_8px_0px_#fff] rotate-[0.5deg]">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-white/40 border-3 border-black dark:border-white flex items-center justify-center">
                     <Lightbulb className="w-6 h-6" />

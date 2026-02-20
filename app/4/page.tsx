@@ -65,7 +65,7 @@ function ParticleBurst() {
       {particles.map(p => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-purple-400/30"
+          className="absolute rounded-full bg-purple-600/20 dark:bg-purple-400/30"
           style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
           animate={{ y: [0, -30, 0], x: [0, 15, -15, 0], opacity: [0, 0.8, 0], scale: [0.5, 1.5, 0.5] }}
           transition={{ duration: p.dur, repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
@@ -78,7 +78,7 @@ function ParticleBurst() {
 function MorphingShape() {
   return (
     <motion.div
-      className="absolute w-96 h-96 opacity-20 pointer-events-none"
+      className="absolute w-96 h-96 opacity-10 dark:opacity-20 pointer-events-none"
       style={{ right: '-5%', top: '10%', background: 'linear-gradient(135deg, #9333ea, #c084fc, #a855f7)' }}
       animate={{
         borderRadius: ['30% 70% 70% 30% / 30% 30% 70% 70%', '50% 50% 20% 80% / 25% 80% 20% 75%', '67% 33% 47% 53% / 37% 20% 80% 63%', '30% 70% 70% 30% / 30% 30% 70% 70%'],
@@ -127,7 +127,7 @@ export default function Design4() {
           <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
             <ParticleBurst />
             <MorphingShape />
-            <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-background" />
+            <div className="absolute inset-0 bg-gradient-to-b from-purple-100/40 dark:from-purple-900/10 via-transparent to-background" />
             
             <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <motion.div initial={{ scale: 0, rotate: -180 }} animate={{ scale: 1, rotate: 0 }}
@@ -139,7 +139,7 @@ export default function Design4() {
                 className="overflow-hidden inline-block mb-6">
                 <div className="px-6 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm">
                   <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-                    className="text-purple-300 text-sm font-bold tracking-[0.5em] uppercase d4-display">
+                    className="text-purple-700 dark:text-purple-300 text-sm font-bold tracking-[0.5em] uppercase d4-display">
                     Hack the Future
                   </motion.span>
                 </div>
@@ -186,7 +186,7 @@ export default function Design4() {
                   <motion.div key={s.label} initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.6 + i * 0.1, type: 'spring' }}
                     className="text-center p-4 rounded-2xl bg-purple-500/5 border border-purple-500/10">
-                    <div className="d4-display text-3xl font-extrabold text-purple-400 mb-1">
+                    <div className="d4-display text-3xl font-extrabold text-purple-600 dark:text-purple-400 mb-1">
                       <AnimatedCounter value={s.value} />
                     </div>
                     <div className="text-sm text-muted-foreground">{s.label}</div>
@@ -207,7 +207,7 @@ export default function Design4() {
                   <motion.div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-fuchsia-500/0 group-hover:from-purple-500/5 group-hover:to-fuchsia-500/10 transition-all" />
                   <div className="relative">
                     <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}
-                      className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
+                      className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
                       <f.icon className="w-6 h-6" />
                     </motion.div>
                     <h3 className="text-xl font-bold mb-2 d4-display">{f.text}</h3>
@@ -240,10 +240,10 @@ export default function Design4() {
                   whileHover={{ scale: 1.02, rotate: 1 }}
                   className="p-8 lg:p-12 rounded-3xl bg-purple-500/5 border border-purple-500/10 hover:border-purple-500/25 transition-all">
                   <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 3, repeat: Infinity }}
-                    className="w-14 h-14 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6">
+                    className="w-14 h-14 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-6">
                     <Rocket className="w-7 h-7" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold mb-4 text-purple-400 d4-display">Our Mission</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-purple-700 dark:text-purple-400 d4-display">Our Mission</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     To empower students with cutting-edge technical skills, foster innovation, and build a collaborative community that drives technological advancement and prepares members for the digital future.
                   </p>
@@ -254,10 +254,10 @@ export default function Design4() {
                   whileHover={{ scale: 1.02, rotate: -1 }}
                   className="p-8 lg:p-12 rounded-3xl bg-fuchsia-500/5 border border-fuchsia-500/10 hover:border-fuchsia-500/25 transition-all">
                   <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-                    className="w-14 h-14 rounded-xl bg-fuchsia-500/10 text-fuchsia-400 flex items-center justify-center mb-6">
+                    className="w-14 h-14 rounded-xl bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-400 flex items-center justify-center mb-6">
                     <Lightbulb className="w-7 h-7" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold mb-4 text-fuchsia-400 d4-display">Our Vision</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-fuchsia-700 dark:text-fuchsia-400 d4-display">Our Vision</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     To be the premier IT hub at BGCTUB, recognized for excellence in technology education, groundbreaking projects, and producing industry-ready professionals who lead the tech revolution.
                   </p>
